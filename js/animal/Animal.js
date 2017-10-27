@@ -1,36 +1,12 @@
 var Animal = (
 	function () {
-		function Animal(pNombre) {
-
+		function Animal(pNombre, pedad, ) {
+            this.nombre = pnombre;
+            this.edad = pedad;
+            this.altura = paltura;
+            this.peso = ppeso;
         }
 
-        function Animal(pedad) {
-            
-        }
-
-        function Animal(paltura) {
-            
-        }
-
-        function Animal(ppeso) {
-            
-        }
-
-        function Animal(ptamanno) {
-            
-        }
-            
-        function Animal(pEdad) {
-                        
-        }
-            
-        function Animal(pcapacidadEstomago) {
-                        
-        }
-            
-        function Animal(pPeso) {
-                        
-        }
 
 		//Class Methods
 		Animal.prototype.comer = function () {
