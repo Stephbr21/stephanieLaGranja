@@ -1,11 +1,13 @@
 window.addEventListener('load', init, false);
 
 function init() {
-    /*
-    let canvas = document.createElement('canvas');
-    document.body.appendChild(canvas);
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let context = canvas.getContext('2d');
-    */
+
+    var matilde = new Vaca('Matilde');
+    matilde.comer();
+
+    var juana = new Vaca('Juana');
+    juana.comer();
+    juana.comerPapa();
+
+    console.log(matilde);
 }
