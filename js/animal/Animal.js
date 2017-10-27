@@ -1,18 +1,35 @@
 var Animal = (
 	function () {
-		function Animal(pNombre, pedad, ) {
+		function Animal(pNombre, pedad) {
             this.nombre = pnombre;
             this.edad = pedad;
             this.altura = paltura;
             this.peso = ppeso;
+            this.tamanno = ptamanno;
+            this.capacidadEstomago = pcapacidadEstomago;
+            this.capacidadConsumoAgua = pcapacidadConsumoAgua;
+            this.capacidadConsumoAlimento = pcapacidadConsumoAlimento;
+            this.capacidadProduccion = pcapacidadProduccion;
+            this.tipoProduccion = ptipoProduccion;
         }
-
 
 		//Class Methods
 		Animal.prototype.comer = function () {
-			console.log(this.nombre + ' soy una vaca y estoy comiendo.');
+			console.log(this.nombre + ' soy una animal y estoy comiendo.');
 		}
 
-		return VAnimalaca;
+        Animal.prototype.caminar = function () {
+			console.log(this.nombre + ' soy una animal y estoy caminando.');
+        }
+        
+        Animal.prototype.beber = function () {
+			console.log(this.nombre + ' soy una animal y estoy bebiendo.');
+        }
+        
+        Animal.prototype.producir = function () {
+			console.log(this.nombre + ' soy una animal y estoy produciendo.');
+        }
+        
+		return Animal;
 	}
 )();
