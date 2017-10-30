@@ -7,7 +7,7 @@ function init() {
 
     var juana = new Vaca('Juana');
     juana.comer();
-    juana.comerPapa();
+    //juana.comerPapa();
 
     console.log(matilde);
 }

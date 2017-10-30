@@ -1,0 +1,28 @@
+.container-fluid{
+    background-color: #D7E0E6;
+    padding: 10px 10px;
+    font-family: 'Lobster Two', cursive;
+}
+
+#controlsContainer{
+    padding: 20px;
+    background-color: #51429C;
+}
+
+#farmContainer, #animalContainer{
+    height: 340px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #A4B6E7;
+}
+
+#animalsContainer{
+    background-color: #60B7DB;
+    padding: 20px;
+    height: 780px;
+}
+
+#animalCardContainer{
+    background-color:#2F6592;
+    padding: 15px;
+}
