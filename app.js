@@ -2,34 +2,63 @@ window.addEventListener('load', init, false);
 
 function init() {
 
-    // var matilde = new Vaca('Matilde');
-    // matilde.comer();
+    var cusu = new Animal('Batido', 1, 2, 10, 'mediana', 10, 5, 5, 'ninguna', 'ninguno');
+    //cusu.comer();
+    //cusu.caminar();
+    //cusu.beber();
 
-    // var juana = new Vaca('Juana');
-    // juana.comer();
-    // //juana.comerPapa();
+    var animals = [];
+    var vaca = new Vaca('Matilde');
+    vaca.color = 'blue';
+    animals.push(vaca);
 
-    // console.log(matilde);
+
+
+    console.log(animals);
+
+    var animalContainer_title = document.getElementById('animalContainer_title');
+
+    /*
+    let canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let context = canvas.getContext('2d');
+    */
 
     var animalsContainer = document.getElementById('animalsContainer');
-    //console.log(animalsContainer);
 
-    for (var index = 0; index < 5; index++) {
+    for (var i = 0; i < animals.length; i++) {
+
         var animal = document.createElement('div');
-        //console.log(animal);
         animalsContainer.appendChild(animal);
-        animal.id = 'animal'+ index;
-        animal.style.with = '100px';
-        animal.style.height = '100px';
-        animal.style.background = 'red';
-        animal.addEventListener('click', onClick,false);
-    
-            function onClick(e){
-                console.log(e.target.id);
-            }
-        
-    }
-    
-        
+        animal.id = animals[i].nombre;
+        animal.classList.add('animalCardContainer');
 
+        var title = document.createElement('h5');
+        title.style.marginTop = '0px';
+        title.style.marginBottom = '0px';
+        title.innerHTML = animals[i].nombre;;
+        animal.appendChild(title);
+
+        animal.addEventListener('click', onAnimalCardClick, false);
+    }
+
+    function onAnimalCardClick(event) {
+        console.log(event);
+        var vaca = getVacaByName(event.target.id);
+        console.log(vaca);
+        event.target.style.background = vaca.color;
+        animalContainer_title.innerHTML = vaca.nombre;
+
+    }
+
+    function getVacaByName(nombre) {
+        for (var i = 0; i < animals.length; i++) {
+            if (animals[i].nombre === nombre) {
+                return animals[i];
+            }
+        }
+        return null;
+    }
 }
