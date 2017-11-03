@@ -40,6 +40,7 @@ function init() {
         var title = document.createElement('h5');
         title.style.marginTop = '0px';
         title.style.marginBottom = '0px';
+        title.style.height = '10px';
         title.innerHTML = animals[i].nombre;;
         animal.appendChild(title);
 
