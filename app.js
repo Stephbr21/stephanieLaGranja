@@ -17,6 +17,8 @@ function init() {
     console.log(animals);
 
     var animalContainer_title = document.getElementById('animalContainer_title');
+    var animalContainer_title = document.getElementById('farmContainer_tittle');
+    var animalContainer_title = document.getElementById('farmContainer_money');
 
     /*
     let canvas = document.createElement('canvas');
