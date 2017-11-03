@@ -1,16 +1,16 @@
 var Animal = (
     function () {
-        function Animal(pnombre) {
+        function Animal(pnombre,pedad,paltura,ppeso,ptamanno,pcapacidadEstomago,pcapacidadConsumoAgua,pcapacidadConsumoAlimento,pcapacidadProduccion,ptipoProduccion) {
             this.nombre = pnombre;
-            // this.edad = pedad;
-            // this.altura = paltura;
-            // this.peso = ppeso;
-            // this.tamanno = ptamanno;
-            // this.capacidadEstomago = pcapacidadEstomago;
-            // this.capacidadConsumoAgua = pcapacidadConsumoAgua;
-            // this.capacidadConsumoAlimento = pcapacidadConsumoAlimento;
-            // this.capacidadProduccion = pcapacidadProduccion;
-            // this.tipoProduccion = ptipoProduccion;
+            this.edad = pedad;
+            this.altura = paltura;
+            this.peso = ppeso;
+            this.tamanno = ptamanno;
+            this.capacidadEstomago = pcapacidadEstomago;
+            this.capacidadConsumoAgua = pcapacidadConsumoAgua;
+            this.capacidadConsumoAlimento = pcapacidadConsumoAlimento;
+            this.capacidadProduccion = pcapacidadProduccion;
+            this.tipoProduccion = ptipoProduccion;
         }
 
         //Class Methods
