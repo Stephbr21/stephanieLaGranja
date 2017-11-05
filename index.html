@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="app.js"></script>
     <script src="js/Animal/Animal.js"></script>
     <script src="js/Animal/Vaca.js"></script>
@@ -35,16 +36,25 @@
 <body class="container-fluid">
     <div class="row">
         <div id="main-container">
-            <div id="controlsContainer" class="col-xs-6 col-md-4">
+            <div id="controlsContainer" class="col-xs-4 col-md-3">
                 <div id="farmContainer">
-                    <h5 id="farmContainer_tittle">Tittle</h5>
-                    <p id="farmContainer_money">Dinero: 20</p>
+                    <h5 id="farmContainer_tittle">GRANJA</h5>
+                    <ul id="provisions">
+                        <li id="farmContainer_money">Dinero: 30</li>
+                        <li id="farmContainer_egg">Huevos: 30</li>
+                        <li id="farmConainer_milk">Leche: 30</li>
+                        <li id="farmContainer_bacon">Tocino: 30</li>
+                        <li id="farmContainer_corn">Maiz:30</li>
+                        <li id="farmContainer_food">Alimento: 30</li>
+                        <li id="farmContainer_grass">Pasto: 30</li></ul>
+                    <button id="buttomsb"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Comprar</button>
+                    <button id="buttomsb"><i class="fa fa-money" aria-hidden="true"></i>Vender</button>
                 </div>
                 <div id="animalContainer">
-                    <h5 id="animalContainer_tittle">Tittle</h5>
+                    <h5 id="animalContainer_tittle">VACA</h5>
                 </div>
             </div>
-            <div id="animalsContainer" class="col-xs-6 col-md-8"></div>
+            <div id="animalsContainer" class="col-xs-7 col-md-8"></div>
         </div>
     </div>
 </body>
