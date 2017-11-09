@@ -38,24 +38,68 @@
         <div id="main-container">
             <div id="controlsContainer" class="col-xs-4 col-md-3">
                 <div id="farmContainer">
-                    <h5 id="farmContainer_tittle">GRANJA</h5>
-                    <ul id="provisions">
-                        <li id="farmContainer_money">Dinero: 30</li>
-                        <li id="farmContainer_egg">Huevos: 30</li>
-                        <li id="farmConainer_milk">Leche: 30</li>
-                        <li id="farmContainer_bacon">Tocino: 30</li>
-                        <li id="farmContainer_corn">Maiz:30</li>
-                        <li id="farmContainer_food">Alimento: 30</li>
-                        <li id="farmContainer_grass">Pasto: 30</li></ul>
-                    <button id="buttomsb"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Comprar</button>
-                    <button id="buttomsb"><i class="fa fa-money" aria-hidden="true"></i>Vender</button>
+                    <h5 id="farmContainer_tittle">Granja</h5>
+                    <div class="row">
+                        <ul id="provisions" class="col-xs-12 col-md-6">
+                            <li id="farmContainer_money">Dinero: 30</li>
+                            <li id="farmContainer_egg">Huevos: 30</li>
+                            <li id="farmConainer_milk">Leche: 30</li>
+                            <li id="farmContainer_bacon">Tocino: 30</li>
+                        </ul>   
+                        <ul class="col-xs-12 col-md-6">
+                            <li id="farmContainer_corn">Maiz:30</li>
+                            <li id="farmContainer_food">Alimento: 30</li>
+                            <li id="farmContainer_grass">Pasto: 30</li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-demo col-xs-1 col-md-6 " id="myBtn"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button type="button" class="btn btn-demo col-xs-1 col-md-6" id="myBtnSell"><i class="fa fa-money" aria-hidden="true"></i></button>
+                    </div>
                 </div>
                 <div id="animalContainer">
-                    <h5 id="animalContainer_tittle">VACA</h5>
+                        <h5 id="animalContainer_title"></h5>
                 </div>
             </div>
-            <div id="animalsContainer" class="col-xs-7 col-md-8"></div>
         </div>
+            <div id="animalsContainer" class="col-xs-7 col-md-8"></div>
     </div>
 </body>
+
+<div id="myModalBuy" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <p>Comprar</p>
+        </div>
+        <div class="row modal-body">
+            <ul class="col-xs-12 col-md-6">
+                <li><button type="button" class="btn btn-demo">Vaca</button></li>
+                <li><button type="button" class="btn btn-demo">Gallina</button></li>
+                <li><button type="button" class="btn btn-demo">Cerdo</button></li>
+            </ul>
+            <ul class="col-xs-12 col-md-6">
+                <li><button type="button" class="btn btn-demo">Alimento</button></li>
+                <li><button type="button" class="btn btn-demo">Pasto</button></li>
+                <li><button type="button" class="btn btn-demo">Maiz</button></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="myModalSell" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closes">&times;</span>
+                <p>Vender</p>
+            </div>
+            <div class="row modal-body">
+                <ul>
+                    <li class="col-xs-12 col-md-6"><button type="button" class="btn btn-demo">Huevos</button></li>
+                    <li class="col-xs-12 col-md-6"><button type="button" class="btn btn-demo">Leche</button></li>
+                    <li class="col-xs-12 col-md-6"><button type="button" class="btn btn-demo">Tocino</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </html>

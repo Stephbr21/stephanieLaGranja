@@ -21,6 +21,7 @@
     padding: 3px;
     background-color: rgb(19, 80, 116);
     opacity: 0.9;
+    border-radius: 8px;    
 }
 
 #animalsContainer{
@@ -37,6 +38,7 @@
     background-color: #2F6592;
     margin-top: 20px;
     display: inline-flex;
+    border-radius: 8px;
 }
 
 #farmContainer_tittle, #animalContainer_tittle{
@@ -49,11 +51,68 @@ ul li{
     list-style: none;
 }
 
-#buttomsb{
-    padding: 5px;
-    margin-left: 30px;
+#myBtn, #myBtnSell{
+    width: 50px;
+    margin-left: 20px;
 }
 
-i{
-    margin-right: 5px;
+
+/* The Modal (background) */
+.modal,.modals{
+    display: none; /* Hidden by default */
+    position: relative; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 30%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
 }
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    font-size: 15px;
+}
+
+/* The Close Button */
+.close,.closes {
+    color: white;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 1px;
+    font-size: 20px;
+    background-color: #32ca4b;
+    color: white;
+    text-align: center;
+}
+
+.modal-body {padding: 2px 2px;}
+
+.modal-body ul li button{
+    padding: 8px 18px 8px 18px;
+    display: inline-block;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #2F6592;
+    user-select: visibility: hidden;
+}
+
