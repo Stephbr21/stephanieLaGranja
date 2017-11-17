@@ -1,7 +1,7 @@
 var Pato = (
 	function () {
 
-		function Pato(pnombre) {
+		function Pato(pnombre,pedad,paltura,ppeso,ptamanno,pcapacidadEstomago,pcapacidadConsumoAgua,pcapacidadConsumoAlimento,pcapacidadProduccion,ptipoProduccion) {
 			Animal.call(this, pnombre);
 		}
 		//Heredar los metodos definidos en Animal (prototype)

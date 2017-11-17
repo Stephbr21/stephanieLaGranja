@@ -1,7 +1,7 @@
 var Vaca = (
 	function () {
 
-		function Vaca(pnombre) {
+		function Vaca(pnombre,pedad,paltura,ppeso,ptamanno,pcapacidadEstomago,pcapacidadConsumoAgua,pcapacidadConsumoAlimento,pcapacidadProduccion,ptipoProduccion) {
 			Animal.call(this, pnombre);
 		}
 		//Heredar los metodos definidos en Animal (prototype)

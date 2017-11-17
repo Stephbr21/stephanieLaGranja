@@ -1,7 +1,7 @@
 var Caballo = (
 	function () {
 
-		function Caballo(pnombre) {
+		function Caballo(pnombre,pedad,paltura,ppeso,ptamanno,pcapacidadEstomago,pcapacidadConsumoAgua,pcapacidadConsumoAlimento,pcapacidadProduccion,ptipoProduccion) {
 			Animal.call(this, pnombre);
 		}
 		//Heredar los metodos definidos en Animal (prototype)

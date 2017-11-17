@@ -1,49 +1,45 @@
 window.addEventListener('load', init, false);
 
 function init() {
-    // var cusu = new Animal('Batido', 1, 2, 10, 'mediana', 10, 5, 5, 'ninguna', 'ninguno');
-    // //cusu.comer();
-    // //cusu.caminar();
-    // //cusu.beber();
 
     var animals = [];
-    var vaca = new Vaca('Matilde');
+
+    var vaca = new Vaca('Matilde',12,2,20,'mediana', 10,5,5,5,'leche');
     vaca.color = 'blue';
     animals.push(vaca);
-
-    var gato = new Gato('Minino');
+      
+    var gato = new Gato('Minino',2,3,14,'pequenno',3,4,6,'ninguna','ninguna');
     gato.color = 'purple';
     animals.push(gato);
 
-    var perro = new Perro('Booby');
+    var perro = new Perro('Booby',1,3,4,'pequenno',3,4,6,'ninguna','ninguna');
     perro.color = 'green';
     animals.push(perro);
     
-    var caballo = new Caballo('Clotilde');
+    var caballo = new Caballo('Clotilde',4,15,30,'grande',13,14,16,'ninguna','ninguna');
     caballo.color = 'pink';
     animals.push(caballo);
 
-    var gallina = new Gallina('Plumin');
+    var gallina = new Gallina('Plumin',1,1,10,'mediana',2,4,3,6,'huevos');
     gallina.color = 'black';
     animals.push(gallina);
 
-    var gallina = new Gallina('Blanca');
+    var gallina = new Gallina('Blanca',1,2,14,'mediana',3,6,1,6,'huevos');
     gallina.color = 'brown';
     animals.push(gallina);
 
-    var pato = new Pato('Poppy');
+    var pato = new Pato('Poppy',1,2,14,'mediana',3,6,1,'ninguna','ninguna');
     pato.color = 'cyan';
     animals.push(pato);
 
-    var pato = new Pato('Pipo');
+    var pato = new Pato('Pipo',1,2,14,'mediana',3,6,1,'ninguna','ninguna');
     pato.color = 'yellow';
     animals.push(pato);
 
-    var cerdo = new Cerdo('Jonas');
+    var cerdo = new Cerdo('Jonas',4,3,40,'grande',3,6,1,20,'tocino');
     cerdo.color = 'red';
     animals.push(cerdo);
-    
-
+   
     console.log(animals);
 
     var animalContainer_title = document.getElementById('animalContainer_title');
