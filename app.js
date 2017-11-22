@@ -9,42 +9,42 @@ function init() {
     var precioDeVaca = new Vaca().precio;
 
     //Creacion de los animales
-    var vaca = new Vaca('Matilde',12,2.3,20,10,5,5,5,'leche',80);
+    var vaca = new Vaca('Matilde', 12, 2.3, 20, 10, 5, 5, 5, 'leche', 80);
     vaca.color = 'blue';
     animals.push(vaca);
-          
-    var gato = new Gato('Minino',2,1.2,3,4,6,2,'ninguna','ninguna',20);
+
+    var gato = new Gato('Minino', 2, 1.2, 3, 4, 6, 2, 'ninguna', 'ninguna', 20);
     gato.color = 'purple';
     animals.push(gato);
-    
-    var perro = new Perro('Bobby',4,1.1,3,4,6,2,'ninguna','ninguna',40);
+
+    var perro = new Perro('Bobby', 4, 1.1, 3, 4, 6, 2, 'ninguna', 'ninguna', 40);
     perro.color = 'green';
     animals.push(perro);
-        
-    var caballo = new Caballo('Horsie',4,1.2,13,14,16,10,'ninguna','ninguna',100);
+
+    var caballo = new Caballo('Horsie', 4, 1.2, 13, 14, 16, 10, 'ninguna', 'ninguna', 100);
     caballo.color = 'pink';
     animals.push(caballo);
-    
-    var gallina = new Gallina('Plumin',1,1.3,2,3,4,5,5,'huevos',85);
+
+    var gallina = new Gallina('Plumin', 1, 1.3, 2, 3, 4, 5, 5, 'huevos', 85);
     gallina.color = 'black';
     animals.push(gallina);
-    
-    var gallina = new Gallina('Blanca',2,0.12,3,6,1,6,2,'huevos',50);
+
+    var gallina = new Gallina('Blanca', 2, 0.12, 3, 6, 1, 6, 2, 'huevos', 50);
     gallina.color = 'brown';
     animals.push(gallina);
-    
-    var pato = new Pato('Poppy',3,0.20,3,6,1,6,3,'huevos',96);
+
+    var pato = new Pato('Poppy', 3, 0.20, 3, 6, 1, 6, 3, 'huevos', 96);
     pato.color = 'cyan';
     animals.push(pato);
-    
-    var pato = new Pato('Pipo',1,0.30,3,6,1,6,3,'huevos',100);
+
+    var pato = new Pato('Pipo', 1, 0.30, 3, 6, 1, 6, 3, 'huevos', 100);
     pato.color = 'yellow';
     animals.push(pato);
-    
-    var cerdo = new Cerdo('Jonas',4,2,3,6,1,20,4,'tocino',70);
+
+    var cerdo = new Cerdo('Jonas', 4, 2, 3, 6, 1, 20, 4, 'tocino', 70);
     cerdo.color = 'red';
     animals.push(cerdo);
-       
+
     console.log(animals);
     console.log(granja);
 
@@ -101,14 +101,20 @@ function init() {
         console.log(event);
 
         currentAnimalSelected = getAnimalByName(event.target.id);
-        console.log(currentAnimalSelected);         
+        // console.log(currentAnimalSelected);
 
-       // event.target.style.background = animal.color;
-        animalContainer.innerHTML = currentAnimalSelected.nombre;    
-       
-        var animalEdad = document.getElementById('animalContainer_age');
+        // event.target.style.background = animal.color;
+
+        //El error era por esta linea, estaba tratando de usar el animalContainer pero no lo esta 
+        // en ninguna parte.
+        // animalContainer.innerHTML = currentAnimalSelected.nombre;
+
+        var animalEdad = window.document.getElementById('animalContainer_age');
+
+        console.log(animalEdad);
+
         animalEdad.innerHTML = "Edad: " + currentAnimalSelected.edad;
-        
+
         var animalAltura = document.getElementById('animalContainer_height');
         animalAltura.innerHTML = "Altura: " + currentAnimalSelected.altura;
 
@@ -132,7 +138,8 @@ function init() {
 
         var animalFelicidad = document.getElementById('animalContainer_hapiness');
         animalFelicidad.innerHTML = "F: " + currentAnimalSelected.felicidad + "%";
-        
+
+        //El comerBtn tampoco esta en el html.
         var btnComer = document.getElementById('comerBtn');
         btnComer.innerHTML = "Comer";
         btnComer.classList.add('btnProduccion');
@@ -201,7 +208,7 @@ function init() {
             document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
         }
     }
-    
+
     function crearAnimalUI(panimal) {
 
         var animal = document.createElement('div');
@@ -237,23 +244,22 @@ function init() {
     var modal = document.getElementById('myModalBuy');
     var btn = document.getElementById("myBtn");
     var span = document.getElementsByClassName("close")[0];
-    btn.onclick = function() {
+    btn.onclick = function () {
         modal.style.display = "block";
     }
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 
-//ModalSell
+    //ModalSell
     var modals = document.getElementById('myModalSell');
     var btns = document.getElementById("myBtnSell");
     var spans = document.getElementsByClassName("closes")[0];
-    btns.onclick = function() {
+    btns.onclick = function () {
         modals.style.display = "block";
     }
-    spans.onclick = function() {
+    spans.onclick = function () {
         modals.style.display = "none";
     }
 
 }
-
