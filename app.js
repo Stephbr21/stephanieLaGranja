@@ -109,10 +109,10 @@ function init() {
         // en ninguna parte.
         // animalContainer.innerHTML = currentAnimalSelected.nombre;
 
+        var animalNombre = window.document.getElementById('animalContainer_name');
+        animalNombre.innerHTML = "Nombre: " + currentAnimalSelected.nombre;
+
         var animalEdad = window.document.getElementById('animalContainer_age');
-
-        console.log(animalEdad);
-
         animalEdad.innerHTML = "Edad: " + currentAnimalSelected.edad;
 
         var animalAltura = document.getElementById('animalContainer_height');
@@ -137,29 +137,29 @@ function init() {
         animalTipoProduccion.innerHTML = "Tipo de Producción: " + currentAnimalSelected.tipoDeProduccion;
 
         var animalFelicidad = document.getElementById('animalContainer_hapiness');
-        animalFelicidad.innerHTML = "F: " + currentAnimalSelected.felicidad + "%";
+        animalFelicidad.innerHTML = "Felicidad: " + currentAnimalSelected.felicidad + "%";
 
         //El comerBtn tampoco esta en el html.
-        var btnComer = document.getElementById('comerBtn');
-        btnComer.innerHTML = "Comer";
-        btnComer.classList.add('btnProduccion');
+        // var btnComer = document.getElementById('comerBtn');
+        // btnComer.innerHTML = "Comer";
+        // btnComer.classList.add('btnProduccion');
 
-        var btnBeber = document.getElementById('beberBtn');
-        btnBeber.innerHTML = "Beber";
-        btnBeber.classList.add('btnProduccion');
+        // var btnBeber = document.getElementById('beberBtn');
+        // btnBeber.innerHTML = "Beber";
+        // btnBeber.classList.add('btnProduccion');
 
-        var btnProducir = document.getElementById('producirBtn');
-        var accionProducir = determinarProduccion(currentAnimalSelected.tipo)
+        // var btnProducir = document.getElementById('producirBtn');
+        // var accionProducir = determinarProduccion(currentAnimalSelected.tipo)
 
-        btnProducir.innerHTML = accionProducir;
+        // btnProducir.innerHTML = accionProducir;
 
-        if (accionProducir) {
-            btnProducir.classList.add('btnProduccion');
-            btnProducir.classList.remove('btnOcultar');
-        } else {
-            btnProducir.classList.remove('btnProduccion');
-            btnProducir.classList.add('btnOcultar');
-        };
+        // if (accionProducir) {
+        //     btnProducir.classList.add('btnProduccion');
+        //     btnProducir.classList.remove('btnOcultar');
+        // } else {
+        //     btnProducir.classList.remove('btnProduccion');
+        //     btnProducir.classList.add('btnOcultar');
+        // };
     }
 
     function getAnimalByName(nombre) {
@@ -171,24 +171,24 @@ function init() {
         return null;
     }
 
-    function determinarProduccion(panimal) {
-        var procesoProduccion = "";
+    // function determinarProduccion(panimal) {
+    //     var procesoProduccion = "";
 
-        if (panimal === 'vaca') {
-            procesoProduccion = "Ordeñar";
-        } else {
-            if (panimal === 'gallina' || panimal === 'pato') {
-                procesoProduccion = "Recolectar huevos";
-            } else {
-                if (panimal === 'cerdo') {
-                    procesoProduccion = "Recoger tocino";
-                }
-            }
-        }
+    //     if (panimal === 'vaca') {
+    //         procesoProduccion = "Ordeñar";
+    //     } else {
+    //         if (panimal === 'gallina' || panimal === 'pato') {
+    //             procesoProduccion = "Recolectar huevos";
+    //         } else {
+    //             if (panimal === 'cerdo') {
+    //                 procesoProduccion = "Recoger tocino";
+    //             }
+    //         }
+    //     }
 
-        console.log(procesoProduccion);
-        return procesoProduccion;
-    }
+    //     console.log(procesoProduccion);
+    //     return procesoProduccion;
+    // }
 
     //---------------------Acciones---------------------
 
@@ -224,21 +224,13 @@ function init() {
         var imageAnimal = document.createElement('div');
         imageAnimal.classList.add(animal.tipo);
         animal.appendChild(imageAnimal);
-
-        // var happiness = document.createElement('p');
-        // happiness.innerHTML = 'F=' + panimal.felicidad + '%';
-        // happiness.style.textAlign = 'left';
-        // happiness.style.height = '20px';
-        // happiness.style.color = 'blanchedalmond';
-        // animal.appendChild(happiness);
-
         animal.addEventListener('click', onAnimalCardClick, false);
     }
 
-    function producirBtnAction(e) {
-        console.log(e);
-        currentAnimalSelected.producir();
-    }
+    // function producirBtnAction(e) {
+    //     console.log(e);
+    //     currentAnimalSelected.producir();
+    // }
 
     //ModalBuy
     var modal = document.getElementById('myModalBuy');
