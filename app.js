@@ -222,7 +222,8 @@ function init() {
         animal.appendChild(title);
 
         var imageAnimal = document.createElement('div');
-        imageAnimal.classList.add(animal.tipo);
+        imageAnimal.classList.add(panimal.tipo);
+        imageAnimal.classList.add('imgAnimalStyle');
         animal.appendChild(imageAnimal);
         animal.addEventListener('click', onAnimalCardClick, false);
     }

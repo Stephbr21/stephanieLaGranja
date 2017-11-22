@@ -17,8 +17,8 @@
     height: 220px;
     margin-bottom: 10px;
     padding: 4px;
-    background-color: rgb(19, 80, 116);
-    opacity: 0.7;
+    background-color: rgb(32, 128, 40);
+    opacity: 0.8;
     border-radius: 8px;  
 }
 
@@ -26,8 +26,8 @@
     height: 270px;
     margin-bottom: 10px;
     padding: 3px;
-    background-color: rgb(19, 80, 116);
-    opacity: 0.9;
+    background-color: rgb(60, 16, 110);
+    opacity: 0.3;
     border-radius: 8px;    
 }
 
@@ -42,8 +42,7 @@
     width: 27%;
     margin-left: 5%;
     height: 150px;
-    background-color: #2F6592;
-    opacity: 0.4;
+    background-color: rgba(47, 101, 146, 0.5);
     margin-top: 20px;
     display: inline-flex;
     border-radius: 8px;
@@ -69,7 +68,7 @@ ul li{
 
 /* Animals */
 .Vaca{
-    background: url(cow.png);
+    background: url(../img/cow.png);
 }
 
 .Caballo{
@@ -85,7 +84,7 @@ ul li{
 }
 
 .Perro{
-    background: url(../img/pig.png);
+    background: url(../img/dog.png);
 }
 
 .Gallina{
@@ -93,15 +92,24 @@ ul li{
 }
 
 .Pato{
-    background: url(../img/pig.png);
+    background: url(../img/duck.ico);
 }
 
+.imgAnimalStyle{
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .styleTitle{
-    padding : 2px 0px 0px 5px;
+    padding : 6px 0px 0px 7px;
     height : 10px;
     text-align : center;
     color: white;
+    font-size: 16px;
 }
 
 
