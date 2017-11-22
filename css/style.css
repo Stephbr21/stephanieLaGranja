@@ -8,15 +8,22 @@
 }
 
 #controlsContainer{
-    padding: 10px;
-    /* background-color: rgb(114, 111, 111); */
-    opacity: 0.9;
+    padding: 5px;
     margin-left: 30px;
     margin-top: 30px;
 }
 
-#farmContainer, #animalContainer{
-    height: 240px;
+#farmContainer{
+    height: 230px;
+    margin-bottom: 10px;
+    padding: 4px;
+    background-color: rgb(19, 80, 116);
+    opacity: 0.7;
+    border-radius: 8px;  
+}
+
+#animalContainer{
+    height: 270px;
     margin-bottom: 10px;
     padding: 3px;
     background-color: rgb(19, 80, 116);
@@ -25,20 +32,22 @@
 }
 
 #animalsContainer{
-    /* background-color: #60B7DB; */
-    padding: 20px;
+    /* background-color: gray; */
+    padding: 20px 0px 20px 0px;
     height: 580px;
-    margin-bottom: 30px;
+    overflow-y: scroll;
 }
 
 .animalCardContainer{
-    width: 25%;
+    width: 27%;
     margin-left: 5%;
     height: 150px;
     background-color: #2F6592;
+    opacity: 0.4;
     margin-top: 20px;
     display: inline-flex;
     border-radius: 8px;
+    color: black;
 }
 
 #farmContainer_tittle, #animalContainer_tittle{
@@ -52,9 +61,66 @@ ul li{
 }
 
 #myBtn, #myBtnSell{
-    width: 50px;
+    width: 40px;
     margin-left: 20px;
 }
+
+/* Animals */
+.Vaca{
+    background: url(../img/cow.png);
+    background-size: 90px;
+}
+
+.Caballo{
+    background-image: url(../img/cow.png);
+    background-size: 40px;
+}
+
+.Cerdo{
+    background-image: url(../img/pig.png);
+}
+
+.Gato{
+    background-image: url(../img/pig.png);
+}
+
+.Perro{
+    background-image: url(../img/pig.png);
+}
+
+.Gallina{
+    background-image: url(../img/pig.png);
+}
+
+.Pato{
+    background-image: url(../img/pig.png);
+}
+
+
+.styleTitle{
+    padding : 2px 0px 0px 5px;
+    height : 10px;
+    text-align : center;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* The Modal (background) */
@@ -113,6 +179,5 @@ ul li{
     margin: 0 auto;
     margin-top: 20px;
     background-color: #2F6592;
-    user-select: visibility: hidden;
 }
 

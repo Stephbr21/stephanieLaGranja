@@ -1,35 +1,39 @@
 var Animal = (
-    function () {
-        function Animal(pnombre,pedad,paltura,ppeso,ptamanno,pcapacidadEstomago,pcapacidadConsumoAgua,pcapacidadConsumoAlimento,pcapacidadProduccion,ptipoProduccion) {
-            this.nombre = pnombre;
-            this.edad = pedad;
-            this.altura = paltura;
-            this.peso = ppeso;
-            this.tamanno = ptamanno;
-            this.capacidadEstomago = pcapacidadEstomago;
-            this.capacidadConsumoAgua = pcapacidadConsumoAgua;
-            this.capacidadConsumoAlimento = pcapacidadConsumoAlimento;
-            this.capacidadProduccion = pcapacidadProduccion;
-            this.tipoProduccion = ptipoProduccion;
-        }
+	function () {
+		function Animal(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad,ptipo) {
+			this.nombre = pnombre;
+			this.edad = pedad;
+			this.altura = paltura;
+			this.peso = ppeso;
+			this.capacidadEstomago = pcapacidadEstomago;
+			this.capacidaConsumoAgua = pcapacidadConsumoAgua;
+			this.capacidadConsumoAlimento = pcapacidadConsumoAlimento;
+			this.capacidadProduccion = pcapacidadProduccion;
+			this.tipoDeProduccion = ptipoDeProduccion;
+			this.felicidad = pfelicidad;
+			this.precio = 0;
+			this.tipo = ptipo;
+			this.tiempo = 0;
+			this.FRAMERATE = 60;
+			this.cantidadDeProducto = 0;
+			this.tiempoDeProduction = 2 * this.FRAMERATE;
+			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
+		}
+		//Class Methods
+		Animal.prototype.comer = function () {};
+		Animal.prototype.caminar = function () {};
+		Animal.prototype.beber = function () {};
 
-        //Class Methods
-        Animal.prototype.comer = function () {
-            console.log(this.nombre + ' soy una animal y estoy comiendo.');
-        }
+		Animal.prototype.producir = function () {
+			// console.log('Este animal no produce nada!');
+		};
 
-        Animal.prototype.caminar = function () {
-            console.log(this.nombre + ' soy una animal y estoy caminando.');
-        }
+		Animal.prototype.crearProducto = function () {
+		}
 
-        Animal.prototype.beber = function () {
-            console.log(this.nombre + ' soy una animal y estoy bebiendo.');
-        }
+		Animal.prototype.update = function () {
+		}
 
-        Animal.prototype.producir = function () {
-            console.log(this.nombre + ' soy una animal y estoy produciendo.');
-        }
-
-        return Animal;
-    }
+		return Animal;
+	}
 )();

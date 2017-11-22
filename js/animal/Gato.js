@@ -1,8 +1,11 @@
 var Gato = (
 	function () {
 
-		function Gato(pnombre,pedad,paltura,ppeso,ptamanno,pcapacidadEstomago,pcapacidadConsumoAgua,pcapacidadConsumoAlimento,pcapacidadProduccion,ptipoProduccion) {
-			Animal.call(this, pnombre);
+		function Gato(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad) {
+			Animal.call(this, pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad);
+			this.precio = 100;
+			this.tipo = 'Gato';
+			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
 		}
 		//Heredar los metodos definidos en Animal (prototype)
 		Gato.prototype = Object.create(Animal.prototype);
@@ -10,11 +13,11 @@ var Gato = (
 
 		//Class Methods
 		Gato.prototype.comer = function () {
-			console.log(this.nombre + ' soy una Gato y estoy comiendo.');
+			console.log(this.nombre + ' soy un Gato y estoy comiendo.');
 		}
 
 		Gato.prototype.brincar = function () {
-			console.log(this.nombre + ' soy una Gato y estoy comiendo.');
+			console.log(this.nombre + ' soy un Gato y estoy comiendo.');
 		}
 		return Gato;
 	}
