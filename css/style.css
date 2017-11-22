@@ -14,7 +14,7 @@
 }
 
 #farmContainer{
-    height: 230px;
+    height: 220px;
     margin-bottom: 10px;
     padding: 4px;
     background-color: rgb(19, 80, 116);
@@ -58,11 +58,13 @@
 ul li{
     color: blanchedalmond;
     list-style: none;
+    margin-left: -20px;
 }
 
 #myBtn, #myBtnSell{
     width: 40px;
     margin-left: 20px;
+    display: block;
 }
 
 /* Animals */
