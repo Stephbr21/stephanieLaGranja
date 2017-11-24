@@ -247,10 +247,10 @@ function init() {
 
         if (granja.dinero >= pprecioAlimento) {
             granja.dinero -= pprecioAlimento;
-            document.getElementById('farmContainer_food').innerHTML = "Dinero: " + granja.alimento;
+            document.getElementById('farmContainer_food').innerHTML = granja.alimento;
             if (granja.dinero >= pprecioPasto) {
                 granja.dinero -= pprecioPasto;
-                document.getElementById('farmContainer_grass').innerHTML = "Dinero: " + granja.pasto;
+                document.getElementById('farmContainer_grass').innerHTML =  granja.pasto;
             }
                 if (granja.dinero >= pprecioMaiz) {
                     granja.dinero -= pprecioMaiz;
