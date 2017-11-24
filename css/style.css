@@ -14,20 +14,19 @@
 }
 
 #farmContainer{
-    height: 220px;
+    height: 250px;
     margin-bottom: 10px;
-    padding: 4px;
+    padding: 5px;
     background-color: rgb(32, 128, 40);
     opacity: 0.8;
     border-radius: 8px;  
 }
 
 #animalContainer{
-    height: 270px;
+    height: 292px;
     margin-bottom: 10px;
-    padding: 3px;
+    padding: 5px;
     background-color: rgb(60, 16, 110);
-    opacity: 0.3;
     border-radius: 8px;    
 }
 
@@ -50,20 +49,22 @@
 }
 
 #farmContainer_tittle, #animalContainer_tittle{
-    color: blanchedalmond;
+    color: white;
     text-align: center;
 }
 
 ul li{
-    color: blanchedalmond;
+    color: white;
     list-style: none;
-    margin-left: -20px;
+    margin-left:-20px;
+    margin-bottom: 1px;
 }
 
 #myBtn, #myBtnSell{
     width: 40px;
-    margin-left: 20px;
+    margin-left: 40px;
     display: block;
+    margin-top: 2px;
 }
 
 /* Animals */
@@ -72,7 +73,7 @@ ul li{
 }
 
 .Caballo{
-    background: url(../img/cow.png);
+    background: url(../img/horse.png);
 }
 
 .Cerdo{
@@ -80,7 +81,7 @@ ul li{
 }
 
 .Gato{
-    background: url(../img/pig.png);
+    background: url(../img/cat.png);
 }
 
 .Perro{
@@ -88,7 +89,7 @@ ul li{
 }
 
 .Gallina{
-    background: url(../img/pig.png);
+    background: url(../img/gallina.png);
 }
 
 .Pato{
@@ -112,6 +113,13 @@ ul li{
     font-size: 16px;
 }
 
+.btnProduccion{
+    visibility: visible;
+}
+
+.btnOcultar{
+    visibility: hidden;
+}
 
 
 
@@ -131,25 +139,32 @@ ul li{
 
 
 
-/* The Modal (background) */
+
+
+
+
+
+
+
+
 .modal,.modals{
-    display: none; /* Hidden by default */
-    position: relative; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none; 
+    position: central;
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 30%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
+    width: 25%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    -webkit-animation-name: fadeIn;
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
     animation-duration: 0.4s;
 }
 
-/* Modal Content */
+
 .modal-content {
     position: fixed;
     background-color: #fefefe;
@@ -161,7 +176,7 @@ ul li{
     font-size: 15px;
 }
 
-/* The Close Button */
+
 .close,.closes {
     color: white;
     float: right;
@@ -188,4 +203,3 @@ ul li{
     margin-top: 20px;
     background-color: #2F6592;
 }
-
