@@ -1,7 +1,8 @@
 var Pasto = (
 	function () {
-		function Pasto(pnombre) {
-			this.precio = 20;
+		function Pasto() {
+			this.precio = 80;
+			this.cantidad = 17
 		}
-	}
+	}	
 )();

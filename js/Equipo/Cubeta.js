@@ -1,6 +1,6 @@
 var Cubeta = (
 	function () {
-		function Cubeta(pnombre) {
+		function Cubeta() {
 
 		}
 	}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="app.js"></script>
+    <script src="js/animal.json"></script>
     <script src="js/Animal/Animal.js"></script>
     <script src="js/Animal/Vaca.js"></script>
     <script src="js/Animal/Caballo.js"></script>
@@ -56,8 +57,9 @@
                     <div class="row">
                         <button type="button" class="btn btn-demo col-xs-1 col-md-6 " id="myBtn">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-                        <button type="button" class="btn btn-demo col-xs-1 col-md-6" id="myBtnSell">
-                            <i class="fa fa-money" aria-hidden="true"></i></button>                        
+                        <!-- <button type="button" class="btn btn-demo col-xs-1 col-md-6" id="myBtnSell">
+                            <i class="fa fa-money" aria-hidden="true"></i></button> -->
+                        <!-- The Modal -->
                     </div>
                 </div>
                 <div id="animalContainer">
@@ -86,40 +88,7 @@
     </div>
 </body>
 
-<div id="myModalBuy" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <p>Comprar</p>
-        </div>
-        <div class="row modal-body">
-            <ul class="col-xs-12 col-md-6">
-                <li>
-                    <button type="button" id="buyCow" class="btn btn-demo">Vaca</button>
-                </li>
-                <li>
-                    <button type="button" id="buyChicken" class="btn btn-demo">Gallina</button>
-                </li>
-                <li>
-                    <button type="button" id="buyPig" class="btn btn-demo">Cerdo</button>
-                </li>
-            </ul>
-            <ul class="col-xs-12 col-md-6">
-                <li>
-                    <button type="button" id="buyFood" class="btn btn-demo">Alimento</button>
-                </li>
-                <li>
-                    <button type="button" id="buyGrass" class="btn btn-demo">Pasto</button>
-                </li>
-                <li>
-                    <button type="button" id="buyCorn" class="btn btn-demo">Maiz</button>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div id="myModalSell" class="modal">
+<!-- <div id="myModalSell" class="modal">
     <div class="modal-content">
         <div class="modal-header">
             <span class="closes">&times;</span>
@@ -139,6 +108,32 @@
             </ul>
         </div>
     </div>
+</div> -->
+
+
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4>Comprar</h4>
+            <p>Animales | Productos</p>
+        </div>
+        <div class="row modal-body">
+            <ul class="col-xs-12 col-md-6">
+                <li><button type="button" id="buyCow" class="btn btn-demo">Vaca</button></li>
+                <li><button type="button" id="buyChicken" class="btn btn-demo">Gallina</button></li>
+                <li><button type="button" id="buyPig" class="btn btn-demo">Cerdo</button></li>
+            </ul>
+            <ul class="col-xs-12 col-md-6">
+                <li><button type="button" id="buyFood" class="btn btn-demo">Alimento</button></li>
+                <li><button type="button" id="buyGrass" class="btn btn-demo">Pasto</button></li>
+                <li><button type="button" id="buyCorn" class="btn btn-demo">Maiz</button></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <span type="button" class="close" class="btn btn-demo">Cerrar</span>
+        </div>
+    </div>   
 </div>
 
 </html>
