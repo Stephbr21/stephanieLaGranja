@@ -7,7 +7,7 @@ var Granja = (
             this.tocino = ptocino;
             this.maiz = pmaiz;
             this.alimento = palmacenamiento;
-            this.pasto =ppasto
+            this.pasto = ppasto;
         }
         //Class Methods
         return Granja;

@@ -57,9 +57,8 @@
                     <div class="row">
                         <button type="button" class="btn btn-demo col-xs-1 col-md-6 " id="myBtn">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-                        <!-- <button type="button" class="btn btn-demo col-xs-1 col-md-6" id="myBtnSell">
-                            <i class="fa fa-money" aria-hidden="true"></i></button> -->
-                        <!-- The Modal -->
+                        <button type="button" class="btn btn-demo col-xs-1 col-md-6" id="myBtnSell">
+                            <i class="fa fa-money" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <div id="animalContainer">
@@ -88,52 +87,46 @@
     </div>
 </body>
 
-<!-- <div id="myModalSell" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="closes">&times;</span>
-            <p>Vender</p>
-        </div>
-        <div class="row modal-body">
-            <ul>
-                <li class="col-xs-12 col-md-6">
-                    <button type="button" class="btn btn-demo">Huevos</button>
-                </li>
-                <li class="col-xs-12 col-md-6">
-                    <button type="button" class="btn btn-demo">Leche</button>
-                </li>
-                <li class="col-xs-12 col-md-6">
-                    <button type="button" class="btn btn-demo">Tocino</button>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div> -->
-
-
 <div id="myModal" class="modal">
-    <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
             <h4>Comprar</h4>
-            <p>Animales | Productos</p>
+            <p>Animales | Provisiones</p>
         </div>
         <div class="row modal-body">
             <ul class="col-xs-12 col-md-6">
-                <li><button type="button" id="buyCow" class="btn btn-demo">Vaca</button></li>
-                <li><button type="button" id="buyChicken" class="btn btn-demo">Gallina</button></li>
-                <li><button type="button" id="buyPig" class="btn btn-demo">Cerdo</button></li>
+                <li><button id="buyCow" class="btn btn-demo">Vaca</button></li>
+                <li><button id="buyChicken" class="btn btn-demo">Gallina</button></li>
+                <li><button id="buyPig" class="btn btn-demo">Cerdo</button></li>
             </ul>
             <ul class="col-xs-12 col-md-6">
-                <li><button type="button" id="buyFood" class="btn btn-demo">Alimento</button></li>
-                <li><button type="button" id="buyGrass" class="btn btn-demo">Pasto</button></li>
-                <li><button type="button" id="buyCorn" class="btn btn-demo">Maiz</button></li>
+                <li><button id="buyFood" class="btn btn-demo">Alimento</button></li>
+                <li><button id="buyGrass" class="btn btn-demo">Pasto</button></li>
+                <li><button id="buyCorn" class="btn btn-demo">Maiz</button></li>
             </ul>
         </div>
         <div class="modal-footer">
             <span type="button" class="close" class="btn btn-demo">Cerrar</span>
         </div>
     </div>   
+</div>
+<div id="myModalSell" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4>Vender</h4>
+            <p>| Productos de la Granja |</p>
+        </div>
+        <div class="row modal-body">
+            <ul>
+                <li class="col-xs-12 col-md-6"><button id="sellEgg" class="btn btn-demo">Huevos</button><li>
+                <li class="col-xs-12 col-md-6"><button id="sellMilk" class="btn btn-demo">Leche</button></li>
+                <li class="col-xs-12 col-md-6"><button id="sellBacon" class="btn btn-demo">Tocino</button></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <span type="button" class="close" class="btn btn-demo">Cerrar</span>
+        </div>
+    </div>
 </div>
 
 </html>

@@ -1,8 +1,8 @@
 var Pasto = (
 	function () {
-		function Pasto() {
-			this.precio = 80;
-			this.cantidad = 17
+		function Pasto(palmacenamiento) {
+			this.precio = 30
 		}
-	}	
+	return Pasto;
+	}
 )();

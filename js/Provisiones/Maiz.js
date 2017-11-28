@@ -1,8 +1,8 @@
 var Maiz = (
 	function () {
-		function Maiz(pnombre) {
-			this.precio = 15;
-			this.cantidad = 18;
+		function Maiz(palmacenamiento) {
+			this.precio = 30
 		}
+	return Maiz;
 	}
 )();

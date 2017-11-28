@@ -1,7 +1,8 @@
 var Tocino = (
 	function () {
-		function Tocino(pnombre) {
-
+		function Tocino(palmacenamiento) {
+			this.precio = 15
 		}
+	return Tocino;
 	}
 )();
