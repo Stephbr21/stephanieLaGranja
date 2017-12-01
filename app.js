@@ -157,7 +157,7 @@ function init() {
             // btnBeber.classList.add('btnProduccion');
 
             var btnProducir = document.getElementById('producirBtn');
-            var accionProducir = determinarProduccion(currentAnimalSelected.tipo)            
+            var accionProducir = determinarProduccion(currentAnimalSelected.tipo);            
 
             if (accionProducir) {
                 btnProducir.classList.add('btnProduccion');
