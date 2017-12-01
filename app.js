@@ -165,6 +165,7 @@ function init() {
             document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + accionProducir;
 
 
+
             if (accionProducir) {
                 btnProducir.classList.add('btnProduccion');
                 btnProducir.classList.remove('btnOcultar');
