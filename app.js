@@ -14,6 +14,7 @@ function init() {
     var precioHuevos = new Huevos().precio;
     var precioLeche = new Leche().precio;
     var precioTocino = new Tocino().precio;
+    var precioMaiz = new Maiz().precio;
     
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -102,17 +103,15 @@ function init() {
     var granjaPasto = document.getElementById('farmContainer_grass');
     granjaPasto.innerHTML = "Pasto: " + granja.pasto;
 
-    document.getElementById('buyCow').addEventListener('click', btnCVacaAction, false);
-    document.getElementById('buyChicken').addEventListener('click', btnChickenAction, false);
-    document.getElementById('buyPig').addEventListener('click', btnPigAction, false);
+    document.getElementById('comprarAnimal').addEventListener('click', btnBuyAnimals, false);
     document.getElementById('buyFood').addEventListener('click', btnBuyFood, false);
     document.getElementById('buyGrass').addEventListener('click', btnBuyGrass, false);
     document.getElementById('buyCorn').addEventListener('click', btnBuyCorn, false);
     document.getElementById('sellEgg').addEventListener('click', btnSellEgg, false);
     document.getElementById('sellMilk').addEventListener('click', btnSellMilk, false);
-     document.getElementById('sellBacon').addEventListener('click', btnSellBacon, false);
+    document.getElementById('sellBacon').addEventListener('click', btnSellBacon, false);
 
-    // document.getElementById('comerBtn').addEventListener('click', comerBtnAction, false);
+    document.getElementById('comerBtn').addEventListener('click', comerBtnAction, false);
     // document.getElementById('beberBtn').addEventListener('click', beberBtnAction, false);
     document.getElementById('producirBtn').addEventListener('click', producirBtnAction, false);
 
@@ -153,18 +152,15 @@ function init() {
             var animalFelicidad = document.getElementById('animalContainer_hapiness');
             animalFelicidad.innerHTML = "Felicidad: " + currentAnimalSelected.felicidad + "%";
 
-            var btnComer = document.getElementById('comerBtn');
-            btnComer.innerHTML = "Comer";
-            btnComer.classList.add('btnProduccion');
-
-            var btnBeber = document.getElementById('beberBtn');
-            btnBeber.innerHTML = "Beber";
-            btnBeber.classList.add('btnProduccion');
+            // var btnBeber = document.getElementById('beberBtn');
+            // btnBeber.innerHTML = "Beber";
+            // btnBeber.classList.add('btnProduccion');
 
             var btnProducir = document.getElementById('producirBtn');
             var accionProducir = determinarProduccion(currentAnimalSelected.tipo)
 
-            btnProducir.innerHTML = accionProducir;
+            document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + accionProducir;
+            
 
             if (accionProducir) {
                 btnProducir.classList.add('btnProduccion');
@@ -214,75 +210,119 @@ function init() {
     }
 
     //----------Comprar Animales
-    function btnCVacaAction(e) {
-        //1. Validar la comprar = dinero para comprar la vaca
-        console.log(animals);
+    function btnBuyAnimals(e){
+        var newName = document.getElementById('nameAnimal').value;
+        var animalSelected = document.getElementById('AnimalSelected').value;
 
-        if (granja.dinero >= precioDeVaca) {
-            granja.dinero -= precioDeVaca;
-            //2. Crear Vaca y agragarla a lista de animales
-            var vaca = new Vaca('Clara', 1, 2, 100, 100, 5, 5, 5, 'leche', 95);
-            vaca.color = 'green';
-            animals.push(vaca);
+        var newAnimal,
+            priceAnimal;
 
-            //3. Agregar el elemento que representa la vaca en UI
-            crearAnimalUI(vaca);
-            document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
-            modal.style.display = "none";
-        }if (granja.dinero < precioDeVaca){
-            console.log("No tiene dinero para comprar mas animales o alimentos");
-       }
-    }
+        if (newName == "") {
+            console.log('Pongale nombre');
+        } else{
+            console.log(animals);
 
-    function btnChickenAction(e) {
-        //1. Validar la comprar = dinero para comprar la vaca
-        console.log(animals);
-
-        if (granja.dinero >= precioDeGallina) {
-            granja.dinero -= precioDeGallina;
-            //2. Crear Gallina y agragarla a lista de animales
-            var gallina = new Gallina('Lolis', 1, 2, 7, 10, 3, 6, 3, 'huevos', 100);
-            gallina.color = 'green';
-            animals.push(gallina);
-
-            //3. Agregar el elemento que representa la vaca en UI
-            crearAnimalUI(gallina);
-            document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
-            modal.style.display = "none";
-        }if (granja.dinero < precioDeGallina){
-            console.log("No tiene dinero para comprar mas animales o alimentos");
+            switch (animalSelected){
+                case 'Vaca':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Vaca(newName,);
+                break;
+                case 'Gallina':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Gallina(newName,);
+                break;
+                case 'Pato':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Pato(newName,);
+                break;
+                case 'Caballo':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Caballo(newName,);
+                break;
+                case 'Cerdo':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Cerdo(newName,);
+                break;
+                case 'Gato':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Gato(newName,);
+                break;
+                case 'Perro':
+                    priceAnimal = precioDeVaca;
+                    newAnimal = new Perro(newName,);
+                break;
+            }
+            if (granja.dinero >= priceAnimal) {
+                granja.dinero -= priceAnimal;
+                animals.push(newAnimal );
+                crearAnimalUI(newAnimal);
+                document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
+                modal.style.display = "none";
+                modalAnimal.style.display = "none";
+            }
         }
+
     }
 
-    function btnPigAction(e) {
-        //1. Validar la comprar = dinero para comprar la vaca
-        console.log(animals);
+    function comerBtnAction(panimal){
 
-        if (granja.dinero >= precioDeCerdo) {
-            granja.dinero -= precioDeCerdo;
-            //2. Crear Cerdo y agragarla a lista de animales
-            var cerdo = new Cerdo('Gordis', 4, 1, 50, 60, 5, 4, 9, 'tocino', 70);
-            cerdo.color = 'green';
-            animals.push(cerdo);
+        var animalSelected = panimal,
+            comidaAnimal,
+            cantComida;
 
-            //3. Agregar el elemento que representa la cerdo en UI
-            crearAnimalUI(cerdo);
-            document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
-            modal.style.display = "none";
-        }if (granja.dinero < precioDeCerdo){
-            console.log("No tiene dinero para comprar mas animales o alimentos");
-        };
-    };
+            switch (animalSelected){
+                case 'Vaca':
+                    comidaAnimal = 'Pasto';
+                    cantComida = 6;
+                break;
+                case 'Gallina':
+                    comidaAnimal = 'Maiz';
+                    cantComida = 3;
+                break;
+                case 'Pato':
+                    comidaAnimal = 'Maiz';
+                    cantComida = 3;
+                break;
+                case 'Caballo':
+                    comidaAnimal = 'Pasto';
+                    cantComida = 4;
+                break;
+                case 'Cerdo':
+                    comidaAnimal = 'Alimento';
+                    cantComida = 9;
+                break;
+                case 'Gato':
+                    comidaAnimal = 'Alimento';
+                    cantComida = 3;
+                break;
+                case 'Perro':
+                    comidaAnimal = 'Alimento';
+                    cantComida = 4;
+                break;
+            }
+            
+            if (comidaAnimal == 'Pasto') {
+                if (granja.pasto >= cantComida) {
+                    var alimentado = granja.pasto -= cantComida;
+                    document.getElementById('farmContainer_grass').innerHTML = "Pasto: " + alimentado;
+                }if (comidaAnimal == 'Maiz') {
+                    var alimentado = granja.maiz -= cantComida;
+                    document.getElementById('farmContainer_corn').innerHTML = "Maiz: " + alimentado;
+                }if (comidaAnimal == 'Alimento') {
+                    var alimentado = granja.alimento -= cantComida;
+                    document.getElementById('farmContainer_food').innerHTML = "Alimento: " + alimentado;
+                }
+            }
+        }
+        //----------Comprar Provisiones
+        
+        function btnBuyFood(){
 
-    //----------Comprar Provisiones
-    function btnBuyFood() {
-        //1. Validar la comprar = dinero para comprar el alimento
         console.log(granja.alimento);
         if (granja.dinero >= precioAlimento) {
             granja.dinero -= precioAlimento;
 
-            var cantAlimento = granja.alimento + 1;            
-            granja.alimento += 1
+            var cantAlimento = granja.alimento += 1;            
             
             document.getElementById('farmContainer_food').innerHTML = "Alimento: " + cantAlimento;
             document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
@@ -290,8 +330,8 @@ function init() {
 
         }if (granja.dinero < precioAlimento){
             console.log("No tiene dinero para comprar mas animales o alimentos");
-        };
-    };
+        }
+        }
     
     function btnBuyGrass() {
         //1. Validar la comprar = dinero para comprar el alimento
@@ -341,7 +381,7 @@ function init() {
             granja.dinero += precioHuevos;
             document.getElementById('farmContainer_egg').innerHTML = "Huevos: " + cantHuevos;
             document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
-            modal.style.display = "none";
+            modals.style.display = "none";
 
         }if (granja.huevos == 0){
             console.log("No tiene huevos para vender");
@@ -359,7 +399,7 @@ function init() {
             granja.dinero += precioLeche;
             document.getElementById('farmContainer_milk').innerHTML = "Leche: " + cantLeche + " lts";
             document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
-            modal.style.display = "none";
+            modals.style.display = "none";
 
         }if (granja.leche == 0){
             console.log("No tiene leche para vender");
@@ -377,7 +417,7 @@ function init() {
             granja.dinero += precioTocino;
             document.getElementById('farmContainer_bacon').innerHTML = "Tocino: " + cantTocino;
             document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
-            modal.style.display = "none";
+            modals.style.display = "none";
 
         }if (granja.tocino == 0){
             console.log("No tiene tocino para vender");
@@ -401,6 +441,22 @@ function init() {
         imageAnimal.classList.add('imgAnimalStyle');
         animal.appendChild(imageAnimal);
         animal.addEventListener('click', onAnimalCardClick, false);
+
+        var infoHappy = document.createElement('p');
+        infoHappy.innerHTML = "F: " + panimal.felicidad + "%";
+        infoHappy.classList.add('styleTitle');
+        infoHappy.style.marginTop = '100px';
+        infoHappy.style.fontSize = '10px';
+        infoHappy.style.marginRight = '7px';
+        infoHappy
+        animal.appendChild(infoHappy);
+
+        // var infoProduct = document.createElement('h6');
+        // infoProduct.innerHTML = "P: " + panimal.cantidadDeProducto;
+        // infoProduct.style.marginTop = '30px'; 
+        // infoProduct.style.fontSize = '10px';
+        // infoProduct.style.marginRight = '30px';             
+        // animal.appendChild(infoProduct);
     }
 
     function producirBtnAction(e) {
@@ -410,10 +466,10 @@ function init() {
 
     // Get the modalBuy
     var modal = document.getElementById('myModal');
-    var btn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];
+    var btnB = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("closes")[0];
 
-    btn.onclick = function() {
+    btnB.onclick = function() {
         modal.style.display = "block";
         modal.style.backgroundColor ="rgba(0,0,0,0.7)";
     }
@@ -422,18 +478,12 @@ function init() {
         modal.style.display = "none";
     }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        };
-    }
-
     // Get the modalSell
     var modals = document.getElementById('myModalSell');
-    var btn = document.getElementById("myBtnSell");
+    var btnS = document.getElementById("myBtnSell");
     var spans = document.getElementsByClassName("close")[0];
 
-    btn.onclick = function() {
+    btnS.onclick = function() {
         modals.style.display = "block";
         modals.style.backgroundColor ="rgba(0,0,0,0.7)";
     };
@@ -442,10 +492,27 @@ function init() {
         modals.style.display = "none";
     }
 
+    //Get modal comprar animales
+    var modalAnimal = document.getElementById('myModalbuyAnimals');
+    var btnA = document.getElementById("btnBuyAnimals");
+    var spanA = document.getElementsByClassName("closeA")[0];
+
+    btnA.onclick = function() {
+        modalAnimal.style.display = "block";
+        modalAnimal.style.backgroundColor ="rgba(0,0,0,0.7)";
+    };
+
+    spanA.onclick = function() {
+        modalAnimal.style.display = "none";
+    }
+
     window.onclick = function(event) {
         if (event.target == modals) {
             modals.style.display = "none";
-        };
-    }   
-
+        }if (event.target == modal) {
+            modal.style.display = "none";            
+        }if (event.target == modalAnimal){
+            modalAnimal.style.display = "none"
+        }
+    }
 }

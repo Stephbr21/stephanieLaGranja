@@ -7,7 +7,7 @@ var Gallina = (
 			this.tipo = 'Gallina';
 
 			this.cantidadDeProducto = 0;
-			// this.velocidadDeProducion = 2 * this.FRAMERATE;
+			this.velocidadDeProducion = 2 * this.FRAMERATE;
 			this.tiempoDeProduction = 6 * this.FRAMERATE;
 			this.cantidadDeProductoPorTiempo = 2 * (this.felicidad / 100);
 		}
@@ -29,9 +29,9 @@ var Gallina = (
 		};
 
 		Gallina.prototype.crearProducto = function () {
-			//this.capacidadProduccion
-			//this.cantidadDeProducto = 0;
-			//this.velocidadDeProducion = 0
+			this.capacidadProduccion
+			this.cantidadDeProducto = 0;
+			this.velocidadDeProducion = 0
 
 			if (this.capacidadProduccion <= this.cantidadDeProducto) {
 				if (this.tiempo >= this.tiempoDeProduction) {
@@ -39,10 +39,7 @@ var Gallina = (
 					this.tiempo = 0;
 					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
 				}
-			} else {
-				//Vace llena
 			}
-
 		}
 
 		Gallina.prototype.update = function () {

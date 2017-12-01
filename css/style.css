@@ -26,7 +26,7 @@
     height: 292px;
     margin-bottom: 10px;
     padding: 5px;
-    background-color: rgb(60, 16, 110);
+    background-color: rgb(87, 8, 51);
     border-radius: 8px;    
 }
 
@@ -121,8 +121,25 @@ ul li{
 
 .btnOcultar{
     visibility: hidden;
-};
+}
 
+#AnimalSelected, .putName{
+    margin-bottom: 30px;
+    padding: 2px 2px 2px 2px;
+}
+
+.listInfoAnimal li button{
+    background-color: rgb(226, 173, 186);
+    color: black;
+    padding: 1px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+#animalContainer_hapiness, #animalContainer_capProduction{
+    display: left;
+    margin-right: 90px;
+}
 
 .modal, .modals {
     display: none; /* Hidden by default */
@@ -144,7 +161,7 @@ ul li{
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    margin-top: 80px;
+    margin-top: 40px;
     border: 1px solid #888;
     width: 40%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -167,17 +184,23 @@ ul li{
 }
 
 /* The Close Button */
-.close{
+.close, .closes, .closeA{
     color: white;
     float: right;
     font-weight: bold;
+    background-color: #2f6f8d;
 }
 
 .close:hover,
-.close:focus {
-    color: #000;
+.close:focus, 
+.closes:hover, 
+.closes:focus,
+.closeA:hover,
+.closeA:focus{
+    color: rgb(12, 64, 83);
     text-decoration: none;
     cursor: pointer;
+    background-color: rgb(121, 199, 230);
 }
 
 .modal-header {
@@ -195,6 +218,7 @@ ul li{
     margin: 0 auto;
     margin-top: 5px;
     background-color: rgb(128, 34, 99);
+    color: white;
 } 
 
 .modal-body .btn:hover{

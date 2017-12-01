@@ -28,9 +28,8 @@ var Pato = (
 		};
 
 		Pato.prototype.crearProducto = function () {
-			//this.capacidadProduccion
-			//this.cantidadDeProducto = 0;
-			//this.velocidadDeProducion = 0
+			this.cantidadDeProducto = 0;
+			this.velocidadDeProducion = 0
 
 			if (this.capacidadProduccion <= this.cantidadDeProducto) {
 				if (this.tiempo >= this.tiempoDeProduction) {
@@ -38,8 +37,7 @@ var Pato = (
 					this.tiempo = 0;
 					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
 				}
-			} else {
-				//Vace llena
+			
 			}
 
 		}
