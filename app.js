@@ -157,10 +157,7 @@ function init() {
             // btnBeber.classList.add('btnProduccion');
 
             var btnProducir = document.getElementById('producirBtn');
-            var accionProducir = determinarProduccion(currentAnimalSelected.tipo)
-
-            document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + accionProducir;
-            
+            var accionProducir = determinarProduccion(currentAnimalSelected.tipo)            
 
             if (accionProducir) {
                 btnProducir.classList.add('btnProduccion');
