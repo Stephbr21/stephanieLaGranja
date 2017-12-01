@@ -1,6 +1,10 @@
 {
-    "animales" : [
-        {
+    "precios": [{
+        "vaca": 200
+    }, {
+        "cerdo": 200
+    }],
+    "animales": [{
             "nombre": "Gordis",
             "edad": 10,
             "altura": 1.40,

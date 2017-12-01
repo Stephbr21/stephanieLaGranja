@@ -1,6 +1,6 @@
 var Animal = (
 	function () {
-		function Animal(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad,ptipo) {
+		function Animal(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad, ptipo) {
 			this.nombre = pnombre;
 			this.edad = pedad;
 			this.altura = paltura;
@@ -18,6 +18,8 @@ var Animal = (
 			this.cantidadDeProducto = 0;
 			this.tiempoDeProduction = 2 * this.FRAMERATE;
 			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
+			this.cantComida = 0;
+			this.onClick = null;
 		}
 		//Class Methods
 		Animal.prototype.comer = function () {};
@@ -28,11 +30,12 @@ var Animal = (
 			// console.log('Este animal no produce nada!');
 		};
 
-		Animal.prototype.crearProducto = function () {
-		}
+		Animal.prototype.crearProducto = function () {}
 
-		Animal.prototype.update = function () {
-		}
+		Animal.prototype.update = function () {}
+
+		Animal.prototype.addCard = function () {}
+		Animal.prototype.updateCard = function () {}
 
 		return Animal;
 	}
