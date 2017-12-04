@@ -1,11 +1,18 @@
 var Perro = (
 	function () {
 
-		function Perro(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad, onClick) {
+		function Perro(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad, onClick,pcomida) {
 			Animal.call(this, pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad);
 			this.precio = 100;
 			this.tipo = 'Perro';
-			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
+			this.cantComida = 5;
+			this.onClick = onClick;
+			this.title = null;
+			this.addCard();
+			this.tipoComida = 'Alimento';
+			this.capacidadEstomago = 75;
+			this.capacidadConsumoAlimento = 0;
+			this.peso = 15
 		}
 		//Heredar los metodos definidos en Animal (prototype)
 		Perro.prototype = Object.create(Animal.prototype);
@@ -13,14 +20,59 @@ var Perro = (
 
 		//Class Methods
 		Perro.prototype.comer = function () {
-			console.log(this.nombre + ' soy un Perro y estoy comiendo.');
+
+			if (this.capacidadEstomago == 0) {
+				console.log("El animal esta muy lleno");	
+			}if (this.capacidadEstomago > 0) {
+				this.capacidadEstomago -= this.cantComida;
+				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
+				}
+			
+			
+			this.capacidadConsumoAlimento += 1;
+			document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+
+			if (this.capacidadConsumoAlimento == 8) {
+				this.peso += 8;
+				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
+			}
 		}
 
-		Perro.prototype.brincar = function () {
-			console.log(this.nombre + ' soy un Perro y estoy comiendo.');
+		Perro.prototype.producir = function () {
+			document.getElementById('animalContainer_capProduction').style.visibility="hidden";
+
 		}
 
-
+		Perro.prototype.addCard = function () {
+			
+			var animal = document.createElement('div');
+			var animalsContainer = document.getElementById('animalsContainer')
+			animalsContainer.appendChild(animal);
+			
+			animal.id = this.nombre;
+			animal.classList.add('animalCardContainer');
+			
+			this.title = document.createElement('h5');
+			this.title.innerHTML = this.nombre;
+			this.title.classList.add('styleTitle');
+			animal.appendChild(this.title);
+			
+			var imageAnimal = document.createElement('div');
+			imageAnimal.classList.add(this.tipo);
+			imageAnimal.classList.add('imgAnimalStyle');
+			animal.appendChild(imageAnimal);
+			
+			animal.addEventListener('click', this.onClick, false);
+			
+			// var infoHappy = document.createElement('p');
+			// infoHappy.innerHTML = "F: " + this.felicidad + "%";
+			// infoHappy.classList.add('styleTitle');
+			// infoHappy.style.marginTop = '100px';
+			// infoHappy.style.fontSize = '10px';
+			// infoHappy.style.marginRight = '7px';
+			// animal.appendChild(infoHappy);
+		}
+			
 		return Perro;
 	}
 )();

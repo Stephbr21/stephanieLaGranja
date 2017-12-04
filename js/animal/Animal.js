@@ -23,8 +23,8 @@ var Animal = (
 		}
 		//Class Methods
 		Animal.prototype.comer = function () {};
-		Animal.prototype.caminar = function () {};
 		Animal.prototype.beber = function () {};
+		Animal.prototype.acariciar = function () {};
 
 		Animal.prototype.producir = function () {
 			// console.log('Este animal no produce nada!');

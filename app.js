@@ -5,16 +5,17 @@ function init() {
     var animals = [];
     var currentAnimalSelected = null;
 
-    var granja = new Granja(2000, 10, 10, 10, 10, 100, 10);
-    var precioDeVaca = 20;
-    var precioDeGallina = 30;
+    var granja = new Granja(2000, 10, 10, 10, 50, 100, 100);
+    var precioDeVaca = 100;
+    var precioDeGallina = 50;
+    // var precio
     // var precioDeCerdo = new Cerdo().precio;
-    // var precioAlimento = new Alimento().precio;
-    // var precioPasto = new Pasto().precio;
-    // var precioHuevos = new Huevos().precio;
-    // var precioLeche = new Leche().precio;
-    // var precioTocino = new Tocino().precio;
-    // var precioMaiz = new Maiz().precio;
+    var precioAlimento = new Alimento().precio;
+    var precioPasto = new Pasto().precio;
+    var precioHuevos = new Huevos().precio;
+    var precioLeche = new Leche().precio;
+    var precioTocino = new Tocino().precio;
+    var precioMaiz = new Maiz().precio;
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -61,16 +62,6 @@ function init() {
 
     xhttp.open("GET", "js/animal.json", false);
     xhttp.send();
-    console.log(animals);
-    console.log(granja);
-
-    var btnComprar = document.getElementById('myBtn');
-    var btnVender = document.getElementById('myBtnSell');
-
-    //-------Seleccion de animal
-    // for (var i = 0; i < animals.length; i++) {
-    //     crearAnimalUI(animals[i]);
-    // }
 
     function update() {
         for (var i = 0; i < animals.length; i++) {
@@ -78,6 +69,7 @@ function init() {
         }
         window.requestAnimationFrame(update);
     }
+   
     update();
 
     //Cargar informacion de la Granja
@@ -112,8 +104,9 @@ function init() {
     document.getElementById('sellBacon').addEventListener('click', btnSellBacon, false);
 
     document.getElementById('comerBtn').addEventListener('click', comerBtnAction, false);
-    // document.getElementById('beberBtn').addEventListener('click', beberBtnAction, false);
+    document.getElementById('beberBtn').addEventListener('click', beberBtnAction, false);
     document.getElementById('producirBtn').addEventListener('click', producirBtnAction, false);
+    document.getElementById('acariciarBtn').addEventListener('click', acariciarBtnAction, false);
 
     //----------Cargar informacion Animal
     function onAnimalCardClick(event) {
@@ -137,7 +130,7 @@ function init() {
             animalPeso.innerHTML = "Peso: " + currentAnimalSelected.peso + " kg";
 
             var animalCapEstomago = document.getElementById('animalContainer_capStomage');
-            animalCapEstomago.innerHTML = "Capacidad de estomago: " + currentAnimalSelected.capacidadEstomago;
+            animalCapEstomago.innerHTML = "Cap. de estomago: " + currentAnimalSelected.capacidadEstomago;
 
             var animalCapAgua = document.getElementById('animalContainer_capWater');
             animalCapAgua.innerHTML = "Consumo de agua: " + currentAnimalSelected.capacidaConsumoAgua;
@@ -146,7 +139,7 @@ function init() {
             animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
 
             var animalCapProduccion = document.getElementById('animalContainer_capProduction');
-            animalCapProduccion.innerHTML = "Cantidad de producción: " + currentAnimalSelected.cantidadDeProducto;
+            animalCapProduccion.innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
 
             var animalTipoProduccion = document.getElementById('animalContainer_kindProduction');
             animalTipoProduccion.innerHTML = "Tipo de Producción: " + currentAnimalSelected.tipoDeProduccion;
@@ -154,17 +147,8 @@ function init() {
             var animalFelicidad = document.getElementById('animalContainer_hapiness');
             animalFelicidad.innerHTML = "Felicidad: " + currentAnimalSelected.felicidad + "%";
 
-            // var btnBeber = document.getElementById('beberBtn');
-            // btnBeber.innerHTML = "Beber";
-            // btnBeber.classList.add('btnProduccion');
-
             var btnProducir = document.getElementById('producirBtn');
-
             var accionProducir = determinarProduccion(currentAnimalSelected.tipo)
-
-            document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + accionProducir;
-
-
 
             if (accionProducir) {
                 btnProducir.classList.add('btnProduccion');
@@ -193,7 +177,6 @@ function init() {
         } else {
             return null;
         }
-        ``
     }
 
     function determinarProduccion(panimal) {
@@ -215,14 +198,16 @@ function init() {
     }
 
     //----------Comprar Animales
-    function btnBuyAnimals(e) {
-        var newName = document.getElementById('nameAnimal').value;
+    function btnBuyAnimals(panimal) {
+        var newName = document.getElementById('nameAnimal');
+        newName = newName.value.toUpperCase();
+
         var animalSelected = document.getElementById('AnimalSelected').value;
 
         var newAnimal,
             priceAnimal;
 
-        if (newName == "") {
+        if (newName == "" && newName != panimal.nombre) {
             console.log('Pongale nombre');
         } else {
             console.log(animals);
@@ -269,7 +254,17 @@ function init() {
 
     }
 
-    function comerBtnAction() {
+    function acariciarBtnAction(animals){
+
+        if (currentAnimalSelected.felicidad == 0) {
+            var aumentarFelicidad =currentAnimalSelected.felicidad += 100;
+            var img = document.getElementById("mostrar/ocultar");
+            document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + aumentarFelicidad + "%";              
+        }
+
+    }
+
+    function comerBtnAction(panimal) {
 
         var haComido = false;
         switch (currentAnimalSelected.tipo) {
@@ -283,72 +278,56 @@ function init() {
                     haComido = true;
                 }
                 break;
+                case 'Gallina':
+                if (granja.maiz >= currentAnimalSelected.cantComida) {
+                    haComido = true;
+                }
+                break;
+            case 'Pato':
+                if (granja.maiz >= currentAnimalSelected.cantComida) {
+                    haComido = true;
+                }
+                break;
+            case 'Caballo':
+                if (granja.pasto >= currentAnimalSelected.cantComida) {
+                    haComido = true;
+                }
+                break;
+            case 'Gato':
+                if (granja.alimento >= currentAnimalSelected.cantComida) {
+                    haComido = true;
+                }
+                break;
+            case 'Perro':
+                if (granja.alimento >= currentAnimalSelected.cantComida) {
+                    haComido = true;
+                }
+                break;
             default:
                 break;
         }
 
         if (haComido) {
-            granja.alimento -= currentAnimalSelected.cantComida;
-            currentAnimalSelected.comer();
+            if (currentAnimalSelected.tipo == 'Vaca' | currentAnimalSelected.tipo == 'Caballo' ) {
+                granja.pasto -= currentAnimalSelected.cantComida;
+                document.getElementById('farmContainer_grass').innerHTML = "Pasto: " + granja.pasto;                 
+                currentAnimalSelected.comer();                
+            } if (currentAnimalSelected.tipo == 'Perro' | currentAnimalSelected.tipo == 'Gato' | currentAnimalSelected.tipo == 'Cerdo') {
+                granja.alimento -= currentAnimalSelected.cantComida;
+                currentAnimalSelected.comer();
+                document.getElementById('farmContainer_food').innerHTML = "Alimento: " + granja.alimento;                                
+            }if (currentAnimalSelected.tipo == 'Gallina' | currentAnimalSelected.tipo == 'Pato') {
+                granja.maiz -= currentAnimalSelected.cantComida;
+                currentAnimalSelected.comer();
+                document.getElementById('farmContainer_corn').innerHTML = "Maiz: " + granja.maiz;  
+            }
         }
-
-
-
-        //Actualizar la granja
-
-
-        // var animalSelected = panimal,
-        //     comidaAnimal,
-        //     cantComida;
-
-        // switch (animalSelected) {
-        //     case 'Vaca':
-        //         comidaAnimal = 'Pasto';
-        //         cantComida = 6;
-        //         break;
-        //     case 'Gallina':
-        //         comidaAnimal = 'Maiz';
-        //         cantComida = 3;
-        //         break;
-        //     case 'Pato':
-        //         comidaAnimal = 'Maiz';
-        //         cantComida = 3;
-        //         break;
-        //     case 'Caballo':
-        //         comidaAnimal = 'Pasto';
-        //         cantComida = 4;
-        //         break;
-        //     case 'Cerdo':
-        //         comidaAnimal = 'Alimento';
-        //         cantComida = 9;
-        //         break;
-        //     case 'Gato':
-        //         comidaAnimal = 'Alimento';
-        //         cantComida = 3;
-        //         break;
-        //     case 'Perro':
-        //         comidaAnimal = 'Alimento';
-        //         cantComida = 4;
-        //         break;
-        // }
-
-        // if (comidaAnimal == 'Pasto') {
-        //     if (granja.pasto >= cantComida) {
-        //         var alimentado = granja.pasto -= cantComida;
-        document.getElementById('farmContainer_grass').innerHTML = "Pasto: " + granja.pasto;
-        //     }
-        //     if (comidaAnimal == 'Maiz') {
-        //         var alimentado = granja.maiz -= cantComida;
-        document.getElementById('farmContainer_corn').innerHTML = "Maiz: " + granja.maiz;
-        //     }
-        //     if (comidaAnimal == 'Alimento') {
-        //         var alimentado = granja.alimento -= cantComida;
-        document.getElementById('farmContainer_food').innerHTML = "Alimento: " + granja.alimento;
-        //     }
-        // }
     }
-    //----------Comprar Provisiones
 
+    function beberBtnAction(){
+        currentAnimalSelected.beber();  
+    }
+  
     function btnBuyFood() {
 
         console.log(granja.alimento);
@@ -403,7 +382,7 @@ function init() {
         if (granja.dinero < precioMaiz) {
             console.log("No tiene dinero para comprar mas animales o alimentos");
         };
-    };
+    }
 
     //------------Vender productos
     function btnSellEgg() {

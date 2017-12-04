@@ -2,19 +2,20 @@
     padding: 2px;
     font-family: 'Lobster Two', cursive;
     background-image: url("http://iambkinc.org/wp-content/uploads/2014/04/Background-landscape.png");
-    background-size: 1800px;
+    background-size: 180%;
     background-repeat: no-repeat;
     background-position: center;
+    min-width: 300px;
 }
 
 #controlsContainer{
-    padding: 5px;
+    padding: 1px;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 #farmContainer{
-    height: 250px;
+    height: 235px;
     margin-bottom: 10px;
     padding: 5px;
     background-color: rgb(32, 128, 40);
@@ -23,7 +24,7 @@
 }
 
 #animalContainer{
-    height: 292px;
+    height: 335px;
     margin-bottom: 10px;
     padding: 5px;
     background-color: rgb(87, 8, 51);
@@ -32,10 +33,12 @@
 
 #animalsContainer{
     /* background-color: gray; */
-    padding: 20px 0px 20px 0px;
+        /* padding: 0px 0px 20px 0px; */
     height: 580px;
     overflow-y: scroll;
-    overflow: auto
+    overflow: auto;
+    margin-top: 5px;
+    margin-right: -95px;
 }
 
 .animalCardContainer{
@@ -59,14 +62,19 @@ ul li{
     color: white;
     list-style: none;
     margin-left:-20px;
-    margin-bottom: 1px;
+    /* margin-bottom: 1px; */
 }
 
 #myBtn, #myBtnSell{
     width: 40px;
     margin-left: 40px;
     display: block;
-    margin-top: 2px;
+    margin-top: 1px;
+}
+
+.happy{
+    background: url(../img/heart.png);
+
 }
 
 /* Animals */
@@ -122,6 +130,7 @@ ul li{
 .btnOcultar{
     visibility: hidden;
 }
+
 
 #AnimalSelected, .putName{
     margin-bottom: 30px;
@@ -231,3 +240,39 @@ ul li{
     background-color: #5cb85c;
     color: white;
 }
+
+
+/*--------640-------------*/
+
+@media only screen and (min-width: 0px) and (max-width: 640px) {
+    body{
+       width: 100%;
+       background-size: 90px;
+    }    
+        .animalCardContainer{
+            width: 80%;
+        }
+       
+    }  
+
+@media only screen and (min-width: 640px) and (max-width: 879px) {
+    
+
+    .animalCardContainer{
+        width: 80%;
+    }
+   
+}  
+    /*--------980-------------*/
+    
+    @media only screen and (min-width: 764px) and (max-width: 1201px) {
+        .animalCardContainer{
+            width: 40%;
+        }
+    
+    }
+    
+    /*--------1024-------------*/
+    @media only screen and (min-width: 1201px){
+    
+    }
