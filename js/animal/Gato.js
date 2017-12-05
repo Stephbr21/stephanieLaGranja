@@ -16,7 +16,19 @@ var Gato = (
 
 		//Class Methods
 		Gato.prototype.comer = function () {
-			console.log(this.nombre + ' soy un Gato y estoy comiendo.');
+			if (this.capacidadEstomago <= 0 ) {
+				console.log("El animal esta muy lleno");	
+			}if (this.capacidadEstomago > 0) {
+				this.capacidadEstomago -= this.cantComida;
+				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}
+	
+			if (this.capacidadConsumoAlimento == 8) {
+				this.peso += 8;
+				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
+				}
 		}
 
 		Gato.prototype.brincar = function () {
@@ -48,7 +60,7 @@ var Gato = (
 			infoHappy.innerHTML = "F: " + this.felicidad + "%";
 			infoHappy.classList.add('styleTitle');
 			infoHappy.style.marginTop = '100px';
-			infoHappy.style.fontSize = '10px';
+			infoHappy.style.fontSize = '15px';
 			infoHappy.style.marginRight = '7px';
 			animal.appendChild(infoHappy);
 		}

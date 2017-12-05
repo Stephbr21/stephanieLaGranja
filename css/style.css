@@ -1,6 +1,6 @@
 .container-fluid{
-    padding: 2px;
-    font-family: 'Lobster Two', cursive;
+    padding: 1px;
+    font-family: 'Patrick Hand', cursive;
     background-image: url("http://iambkinc.org/wp-content/uploads/2014/04/Background-landscape.png");
     background-size: 180%;
     background-repeat: no-repeat;
@@ -24,8 +24,8 @@
 }
 
 #animalContainer{
-    height: 335px;
-    margin-bottom: 10px;
+    height: 340px;
+    margin-bottom: 1px;
     padding: 5px;
     background-color: rgb(87, 8, 51);
     border-radius: 8px;    
@@ -34,7 +34,7 @@
 #animalsContainer{
     /* background-color: gray; */
         /* padding: 0px 0px 20px 0px; */
-    height: 580px;
+    height: 570px;
     overflow-y: scroll;
     overflow: auto;
     margin-top: 5px;

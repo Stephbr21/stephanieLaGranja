@@ -8,8 +8,7 @@ function init() {
     var granja = new Granja(2000, 10, 10, 10, 50, 100, 100);
     var precioDeVaca = 100;
     var precioDeGallina = 50;
-    // var precio
-    // var precioDeCerdo = new Cerdo().precio;
+    var precioDeCerdo = 500;
     var precioAlimento = new Alimento().precio;
     var precioPasto = new Pasto().precio;
     var precioHuevos = new Huevos().precio;
@@ -29,34 +28,34 @@ function init() {
             for (var i = 0; i < objetoAnimal.length; i++) {
                 switch (objetoAnimal[i].tipo) {
                     case "vaca":
-                        var nuevoAnimal = new Vaca(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Vaca(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                         break;
                     case "gallina":
-                        var nuevoAnimal = new Gallina(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Gallina(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                         break;
                     case "pato":
-                        var nuevoAnimal = new Pato(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Pato(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                         break;
                     case "cerdo":
-                        var nuevoAnimal = new Cerdo(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Cerdo(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                         break;
                     case "caballo":
-                        var nuevoAnimal = new Caballo(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Caballo(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                         break;
                     case "perro":
-                        var nuevoAnimal = new Perro(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Perro(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                         break;
                     case "gato":
-                        var nuevoAnimal = new Gato(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
+                        var nuevoAnimal = new Gato(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua,objetoAnimal[i].capacidadConsumoAlimento, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, onAnimalCardClick);
                         animals.push(nuevoAnimal);
                 }
-            };
+            }
         }
     };
 
@@ -133,7 +132,7 @@ function init() {
             animalCapEstomago.innerHTML = "Cap. de estomago: " + currentAnimalSelected.capacidadEstomago;
 
             var animalCapAgua = document.getElementById('animalContainer_capWater');
-            animalCapAgua.innerHTML = "Consumo de agua: " + currentAnimalSelected.capacidaConsumoAgua;
+            animalCapAgua.innerHTML = "Consumo de agua: " + currentAnimalSelected.capacidadConsumoAgua;
 
             var animalCapAlimento = document.getElementById('animalContainer_capFood');
             animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
@@ -201,7 +200,7 @@ function init() {
     function btnBuyAnimals(panimal) {
         var newName = document.getElementById('nameAnimal');
         newName = newName.value.toUpperCase();
-
+        
         var animalSelected = document.getElementById('AnimalSelected').value;
 
         var newAnimal,
@@ -215,37 +214,37 @@ function init() {
             switch (animalSelected) {
                 case 'Vaca':
                     priceAnimal = precioDeVaca;
-                    newAnimal = new Vaca(newName, );
+                    newAnimal = new Vaca(newName, 3, 1.5, 300, 96, 54, 84,"Leche", 10, 100);
                     break;
                 case 'Gallina':
-                    priceAnimal = precioDeVaca;
-                    newAnimal = new Gallina(newName, );
+                    priceAnimal = precioDeGallina;
+                    newAnimal = new Gallina(newName,3, 1.5, 300, 96, 54, 84,"Huevos", 10, 80);
                     break;
                 case 'Pato':
                     priceAnimal = precioDeVaca;
-                    newAnimal = new Pato(newName, );
+                    newAnimal = new Pato(newName,3, 1.5, 300, 96, 54, 84,"Huevos", 10, 70);
                     break;
                 case 'Caballo':
                     priceAnimal = precioDeVaca;
-                    newAnimal = new Caballo(newName, );
+                    newAnimal = new Caballo(newName,3, 1.5, 300, 96, 54, 84,"No", 10,90);
                     break;
                 case 'Cerdo':
-                    priceAnimal = precioDeVaca;
-                    newAnimal = new Cerdo(newName, );
+                    priceAnimal = precioDeCerdo;
+                    newAnimal = new Cerdo(newName,3, 1.5, 300, 96, 54, 84,"Tocino", 10, 90 );
                     break;
                 case 'Gato':
-                    priceAnimal = precioDeVaca;
-                    newAnimal = new Gato(newName, );
+                    priceAnimal = precioDeGato;
+                    newAnimal = new Gato(newName,3, 1.5, 300, 96, 54, 84,"No", 10,100);
                     break;
                 case 'Perro':
-                    priceAnimal = precioDeVaca;
-                    newAnimal = new Perro(newName, );
+                    priceAnimal = precioDePerro;
+                    newAnimal = new Perro(newName,3, 1.5, 300, 96, 54, 84,"No", 10, 70);
                     break;
             }
             if (granja.dinero >= priceAnimal) {
                 granja.dinero -= priceAnimal;
                 animals.push(newAnimal);
-                // crearAnimalUI(newAnimal);
+                crearAnimalUI(newAnimal);
                 document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
                 modal.style.display = "none";
                 modalAnimal.style.display = "none";

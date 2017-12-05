@@ -10,8 +10,6 @@ var Perro = (
 			this.title = null;
 			this.addCard();
 			this.tipoComida = 'Alimento';
-			this.capacidadEstomago = 75;
-			this.capacidadConsumoAlimento = 0;
 			this.peso = 15
 		}
 		//Heredar los metodos definidos en Animal (prototype)
@@ -20,22 +18,19 @@ var Perro = (
 
 		//Class Methods
 		Perro.prototype.comer = function () {
-
-			if (this.capacidadEstomago == 0) {
+			if (this.capacidadEstomago <= 0 ) {
 				console.log("El animal esta muy lleno");	
 			}if (this.capacidadEstomago > 0) {
 				this.capacidadEstomago -= this.cantComida;
 				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
-				}
-			
-			
-			this.capacidadConsumoAlimento += 1;
-			document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
-
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}
+	
 			if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
 				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
-			}
+				}
 		}
 
 		Perro.prototype.producir = function () {
@@ -64,13 +59,13 @@ var Perro = (
 			
 			animal.addEventListener('click', this.onClick, false);
 			
-			// var infoHappy = document.createElement('p');
-			// infoHappy.innerHTML = "F: " + this.felicidad + "%";
-			// infoHappy.classList.add('styleTitle');
-			// infoHappy.style.marginTop = '100px';
-			// infoHappy.style.fontSize = '10px';
-			// infoHappy.style.marginRight = '7px';
-			// animal.appendChild(infoHappy);
+			var infoHappy = document.createElement('p');
+			infoHappy.innerHTML = "F: " + this.felicidad + "%";
+			infoHappy.classList.add('styleTitle');
+			infoHappy.style.marginTop = '100px';
+			infoHappy.style.fontSize = '15px';
+			infoHappy.style.marginRight = '7px';
+			animal.appendChild(infoHappy);
 		}
 			
 		return Perro;
