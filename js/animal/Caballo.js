@@ -7,6 +7,7 @@ var Caballo = (
 			this.tipo = 'Caballo';
 			this.cantComida = 8;
 			this.onClick = onClick;
+			this.capacidadConsumoAgua = 30;
 			this.title = null;
 			this.addCard();
 		}
@@ -31,6 +32,18 @@ var Caballo = (
 				}
 		}
 	
+		Caballo.prototype.beber = function () {
+			
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
+				this.capacidadConsumoAgua -= this.cantAgua;
+				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}else{
+				console.log("El animal no quiere agua");
+				}
+		}
+
 		Caballo.prototype.addCard = function () {
 						
 			var animal = document.createElement('div');

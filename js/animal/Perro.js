@@ -5,8 +5,10 @@ var Perro = (
 			Animal.call(this, pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad);
 			this.precio = 100;
 			this.tipo = 'Perro';
-			this.cantComida = 5;
+			this.cantComida = 4;
+			this.cantAgua = 4;
 			this.onClick = onClick;
+			this.capacidadConsumoAgua = 35;
 			this.title = null;
 			this.addCard();
 			this.tipoComida = 'Alimento';
@@ -30,6 +32,18 @@ var Perro = (
 			if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
 				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
+				}
+		}
+
+		Perro.prototype.beber = function () {
+			
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
+				this.capacidadConsumoAgua -= this.cantAgua;
+				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}else{
+				console.log("El animal no quiere agua");
 				}
 		}
 

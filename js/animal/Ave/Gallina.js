@@ -9,6 +9,7 @@ var Gallina = (
 			this.velocidadDeProducion = 2 * this.FRAMERATE;
 			this.tiempoDeProduction = 6 * this.FRAMERATE;
 			this.cantidadDeProductoPorTiempo = 2 * (this.felicidad / 100);
+			this.capacidadConsumoAgua = 9;
 			this.cantComida = 2;
 			this.onClick = onClick;
 			this.title = null;
@@ -32,6 +33,18 @@ var Gallina = (
 			if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
 				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
+				}
+		}
+
+		Gallina.prototype.beber = function () {
+			
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
+				this.capacidadConsumoAgua -= this.cantAgua;
+				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}else{
+				console.log("El animal no quiere agua");
 				}
 		}
 

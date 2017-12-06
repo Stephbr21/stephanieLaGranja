@@ -8,6 +8,7 @@ var Pato = (
 			this.cantidadDeProducto = 0;
 			this.tiempoDeProduction = 2 * this.FRAMERATE;
 			this.cantidadDeProductoPorTiempo = 2 * (this.felicidad / 100);
+			this.capacidadConsumoAgua = 15;
 			this.cantComida = 3;
 			this.onClick = onClick;
 			this.title = null;
@@ -31,6 +32,18 @@ var Pato = (
 			if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
 				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
+				}
+		}
+
+		Pato.prototype.beber = function () {
+			
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
+				this.capacidadConsumoAgua -= this.cantAgua;
+				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}else{
+				console.log("El animal no quiere agua");
 				}
 		}
 

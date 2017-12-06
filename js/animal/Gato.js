@@ -7,6 +7,7 @@ var Gato = (
 			this.tipo = 'Gato';
 			this.cantComida = 4;
 			this.onClick = onClick;
+			this.capacidadConsumoAgua = 25;
 			this.title = null;
 			this.addCard();
 		}
@@ -31,8 +32,16 @@ var Gato = (
 				}
 		}
 
-		Gato.prototype.brincar = function () {
-			console.log(this.nombre + ' soy un Gato y estoy comiendo.');
+		Gato.prototype.beber = function () {
+			
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
+				this.capacidadConsumoAgua -= this.cantAgua;
+				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
+				this.capacidadConsumoAlimento -= 1;
+				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			}else{
+				console.log("El animal no quiere agua");
+				}
 		}
 
 		Gato.prototype.addCard = function () {

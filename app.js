@@ -113,8 +113,7 @@ function init() {
 
         currentAnimalSelected = getAnimalByName(event.target);
 
-        console.log(currentAnimalSelected);
-
+        // console.log(currentAnimalSelected);
         if (currentAnimalSelected !== null) {
             var animalNombre = window.document.getElementById('animalContainer_name');
             animalNombre.innerHTML = "Nombre: " + currentAnimalSelected.nombre;
@@ -307,15 +306,16 @@ function init() {
         }
 
         if (haComido) {
-            if (currentAnimalSelected.tipo == 'Vaca' | currentAnimalSelected.tipo == 'Caballo' ) {
+            if (currentAnimalSelected.tipo == 'Vaca' | currentAnimalSelected.tipo == 'Caballo' && currentAnimalSelected.capacidadEstomago != 0) {
                 granja.pasto -= currentAnimalSelected.cantComida;
                 document.getElementById('farmContainer_grass').innerHTML = "Pasto: " + granja.pasto;                 
-                currentAnimalSelected.comer();                
-            } if (currentAnimalSelected.tipo == 'Perro' | currentAnimalSelected.tipo == 'Gato' | currentAnimalSelected.tipo == 'Cerdo') {
+                currentAnimalSelected.comer(); 
+               
+            } if (currentAnimalSelected.tipo == 'Perro' | currentAnimalSelected.tipo == 'Gato' | currentAnimalSelected.tipo == 'Cerdo' && currentAnimalSelected.capacidadEstomago != 0) {
                 granja.alimento -= currentAnimalSelected.cantComida;
                 currentAnimalSelected.comer();
                 document.getElementById('farmContainer_food').innerHTML = "Alimento: " + granja.alimento;                                
-            }if (currentAnimalSelected.tipo == 'Gallina' | currentAnimalSelected.tipo == 'Pato') {
+            }if (currentAnimalSelected.tipo == 'Gallina' | currentAnimalSelected.tipo == 'Pato' && currentAnimalSelected.capacidadEstomago != 0) {
                 granja.maiz -= currentAnimalSelected.cantComida;
                 currentAnimalSelected.comer();
                 document.getElementById('farmContainer_corn').innerHTML = "Maiz: " + granja.maiz;  
