@@ -64,14 +64,15 @@ var Vaca = (
 			if (this.felicidad > 0) {
 				if (this.cantidadDeProducto <= this.capacidadProduccion) {
 					if (this.tiempo >= this.tiempoDeProduction) {
-						this.result = this.cantidadDeProducto += this.cantidadDeProductoPorTiempo;
-						this.result = Math.round(this.result * 100) / 100;
-						this.result.toFixed(2);
+						this.cantidadDeProducto += this.cantidadDeProductoPorTiempo;
+						var result = this.cantidadDeProducto
+						result = Math.round(result * 100) / 100;
+						result.toFixed(2);
 						// this.result = Math.round(((this.cantidadDeProducto += this.cantidadDeProductoPorTiempo)*100)/100).toFixed(2);
 						this.tiempo = 0;
 						this.felicidad -= 1;
 
-						document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + this.result;
+						document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + result;
 					}
 				}
 			}
