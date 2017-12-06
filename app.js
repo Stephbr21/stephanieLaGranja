@@ -8,7 +8,11 @@ function init() {
     var granja = new Granja(2000, 10, 10, 10, 50, 100, 100);
     var precioDeVaca = 100;
     var precioDeGallina = 50;
-    var precioDeCerdo = 500;
+    var precioDeCerdo = 300;
+    var precioDePato = 100;
+    var precioDeCaballo = 50;
+    var precioDeGato = 15;
+    var precioDePerro = 25;
     var precioAlimento = new Alimento().precio;
     var precioPasto = new Pasto().precio;
     var precioHuevos = new Huevos().precio;
@@ -77,7 +81,7 @@ function init() {
     granjaDinero.innerHTML = "Dinero: " + "$" + granja.dinero;
 
     var granjaHuevos = document.getElementById('farmContainer_egg');
-    granjaHuevos.innerHTML = "Huevos:" + granja.huevos;
+    granjaHuevos.innerHTML = "Huevos:" +  granja.huevos;
 
     var granjaLeche = document.getElementById('farmContainer_milk');
     granjaLeche.innerHTML = "Leche:" + granja.leche;
@@ -137,10 +141,7 @@ function init() {
             animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
 
             var animalCapProduccion = document.getElementById('animalContainer_capProduction');
-            var cantidadDeProducto = currentAnimalSelected.cantidadDeProducto;
-            cantidadDeProducto = Math.round(cantidadDeProducto * 100) / 100;
-            cantidadDeProducto.toFixed(2);
-            animalCapProduccion.innerHTML = "Cant. de producto: " + cantidadDeProducto;
+            animalCapProduccion.innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
 
             var animalTipoProduccion = document.getElementById('animalContainer_kindProduction');
             animalTipoProduccion.innerHTML = "Tipo de Producción: " + currentAnimalSelected.tipoDeProduccion;
@@ -208,7 +209,7 @@ function init() {
         var newAnimal,
             priceAnimal;
 
-        if (newName == "" && newName != panimal.nombre) {
+        if (newName == "" && newName !== panimal.nombre) {
             console.log('Pongale nombre');
         } else {
             console.log(animals);
@@ -246,10 +247,11 @@ function init() {
             if (granja.dinero >= priceAnimal) {
                 granja.dinero -= priceAnimal;
                 animals.push(newAnimal);
-                crearAnimalUI(newAnimal);
                 document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
                 modal.style.display = "none";
                 modalAnimal.style.display = "none";
+                onAnimalCardClick();
+                getAnimalByName(target);
             }
         }
 
@@ -448,42 +450,14 @@ function init() {
 
     function crearAnimalUI(panimal) {
 
-        // var animal = document.createElement('div');
-        // animalsContainer.appendChild(animal);
-        // animal.id = panimal.nombre;
-        // animal.classList.add('animalCardContainer');
-
-        // var title = document.createElement('h5');
-        // title.innerHTML = panimal.nombre;
-        // title.classList.add('styleTitle');
-        // animal.appendChild(title);
-
-        // var imageAnimal = document.createElement('div');
-        // imageAnimal.classList.add(panimal.tipo);
-        // imageAnimal.classList.add('imgAnimalStyle');
-        // animal.appendChild(imageAnimal);
-        // animal.addEventListener('click', onAnimalCardClick, false);
-
-        // var infoHappy = document.createElement('p');
-        // infoHappy.innerHTML = "F: " + panimal.felicidad + "%";
-        // infoHappy.classList.add('styleTitle');
-        // infoHappy.style.marginTop = '100px';
-        // infoHappy.style.fontSize = '10px';
-        // infoHappy.style.marginRight = '7px';
-        // infoHappy
-        // animal.appendChild(infoHappy);
-
-        // var infoProduct = document.createElement('h6');
-        // infoProduct.innerHTML = "P: " + panimal.cantidadDeProducto;
-        // infoProduct.style.marginTop = '30px'; 
-        // infoProduct.style.fontSize = '10px';
-        // infoProduct.style.marginRight = '30px';             
-        // animal.appendChild(infoProduct);
     }
 
-    function producirBtnAction(e) {
+    function producirBtnAction(result) {
         console.log(e);
         currentAnimalSelected.producir();
+
+
+
     }
 
     // Get the modalBuy

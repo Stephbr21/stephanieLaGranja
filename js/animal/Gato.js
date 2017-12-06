@@ -17,32 +17,42 @@ var Gato = (
 
 		//Class Methods
 		Gato.prototype.comer = function () {
-			if (this.capacidadEstomago <= 0 ) {
-				console.log("El animal esta muy lleno");	
-			}if (this.capacidadEstomago > 0) {
-				this.capacidadEstomago -= this.cantComida;
-				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
-				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			
+			if (this.capacidadEstomago <= 0) {
+				console.log("El animal esta muy lleno");
+				}if (this.capacidadEstomago > 0) {
+					this.capacidadEstomago -= this.cantComida;
+					document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
+					this.capacidadConsumoAlimento -= 1;
+					document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+					this.felicidad += 1;
+					document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
+				}if (this.capacidadConsumoAlimento == 8) {
+						this.peso += 8;
+						document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";
 			}
-	
-			if (this.capacidadConsumoAlimento == 8) {
-				this.peso += 8;
-				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
-				}
 		}
-
+			
 		Gato.prototype.beber = function () {
 			
-			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua != 0) {
 				this.capacidadConsumoAgua -= this.cantAgua;
 				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
 				this.capacidadConsumoAlimento -= 1;
 				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
-			}else{
+				this.felicidad += 1;
+				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";				
+			} else {
 				console.log("El animal no quiere agua");
 				}
 		}
+			
+		Gato.prototype.acariciar = function () {
+			console.log(this.nombre + ' Acariciame.');
+		}
+
+
+
 
 		Gato.prototype.addCard = function () {
 			

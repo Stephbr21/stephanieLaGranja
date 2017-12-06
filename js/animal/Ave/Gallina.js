@@ -21,36 +21,61 @@ var Gallina = (
 
 		//Class Methods
 		Gallina.prototype.comer = function () {
-			if (this.capacidadEstomago <= 0 ) {
-				console.log("El animal esta muy lleno");	
+			
+			if (this.capacidadEstomago <= 0) {
+				console.log("El animal esta muy lleno");
 			}if (this.capacidadEstomago > 0) {
-				this.capacidadEstomago -= this.cantComida;
-				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
-				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
-			}
-	
-			if (this.capacidadConsumoAlimento == 8) {
+					this.capacidadEstomago -= this.cantComida;
+					document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
+					this.capacidadConsumoAlimento -= 1;
+					document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+					this.felicidad += 1;
+					document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
+			}if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
-				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";				
-				}
+				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";
+			}
 		}
-
+			
 		Gallina.prototype.beber = function () {
 			
-			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua !=0) {
-				this.capacidadConsumoAgua -= this.cantAgua;
-				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
-				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
-			}else{
-				console.log("El animal no quiere agua");
-				}
+			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua != 0) {
+			this.capacidadConsumoAgua -= this.cantAgua;
+			document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
+			this.capacidadConsumoAlimento -= 1;
+			document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+			this.felicidad += 1;
+			document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";				
+			} else {
+			console.log("El animal no quiere agua");
+			}
 		}
-
+			
+		Gallina.prototype.acariciar = function () {
+			console.log(this.nombre + ' Acariciame.');
+		}
+			
 		Gallina.prototype.producir = function () {
-			console.log('Recoger huevos');
-		};
+			console.log('Ordennar');
+		}
+		
+		Gallina.prototype.crearProducto = function () {
+			if (this.felicidad > 0) {
+				if (this.cantidadDeProducto <= this.capacidadProduccion) {
+					if (this.tiempo >= this.tiempoDeProduction) {
+						this.cantidadDeProducto += this.cantidadDeProductoPorTiempo;
+						var result = this.cantidadDeProducto
+						result = Math.round(result * 100) / 100;
+						result.toFixed(2);
+						// this.result = Math.round(((this.cantidadDeProducto += this.cantidadDeProductoPorTiempo)*100)/100).toFixed(2);
+						this.tiempo = 0;
+						this.felicidad -= 1;
+						document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + result;
+					}
+				}
+			}
+			return result;
+		}
 
 		Gallina.prototype.crearProducto = function () {
 

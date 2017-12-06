@@ -31,6 +31,8 @@ var Vaca = (
 				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
 				this.capacidadConsumoAlimento -= 1;
 				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+				this.felicidad += 1;
+				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
 			}
 
 			if (this.capacidadConsumoAlimento == 8) {
@@ -46,6 +48,8 @@ var Vaca = (
 				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
 				this.capacidadConsumoAlimento -= 1;
 				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+				this.felicidad += 1;
+				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";				
 			} else {
 				console.log("El animal no quiere agua");
 			}
@@ -76,6 +80,7 @@ var Vaca = (
 					}
 				}
 			}
+			return result;
 		}
 
 
@@ -105,6 +110,7 @@ var Vaca = (
 			animal.addEventListener('click', this.onClick, false);
 
 			var infoHappy = document.createElement('p');
+			// infoHappy = document.getElementById('animalContainer_hapiness');
 			infoHappy.innerHTML = "F: " + this.felicidad + "%";
 			infoHappy.classList.add('styleTitle');
 			infoHappy.style.marginTop = '100px';
@@ -112,7 +118,6 @@ var Vaca = (
 			infoHappy.style.marginRight = '7px';
 			animal.appendChild(infoHappy);
 		}
-
 		return Vaca;
 	}
 )();
