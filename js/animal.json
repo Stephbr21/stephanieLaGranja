@@ -12,7 +12,7 @@
             "capacidadEstomago": 84,
             "capacidadConsumoAgua": 40,
             "capacidadConsumoAlimento": 109,
-            "capacidadProduccion": 40,
+            "capacidadProduccion": 20,
             "tipoDeProduccion": "Leche",
             "felicidad": 70,
             "tipo": "vaca"

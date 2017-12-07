@@ -61,7 +61,6 @@ var Vaca = (
 		}
 
 		Vaca.prototype.producir = function () {
-			console.log('Ordennar');
 		}
 
 		Vaca.prototype.crearProducto = function () {
@@ -80,10 +79,8 @@ var Vaca = (
 					}
 				}
 			}
-			return result;
 		}
-
-
+		
 		Vaca.prototype.update = function () {
 			this.tiempo++;
 			this.crearProducto();

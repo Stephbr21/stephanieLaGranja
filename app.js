@@ -110,6 +110,7 @@ function init() {
     document.getElementById('beberBtn').addEventListener('click', beberBtnAction, false);
     document.getElementById('producirBtn').addEventListener('click', producirBtnAction, false);
     document.getElementById('acariciarBtn').addEventListener('click', acariciarBtnAction, false);
+    document.getElementById('recogerProductoBtn').addEventListener('click', recogerProdcutoBtnAction, false);
 
     //----------Cargar informacion Animal
     function onAnimalCardClick(event) {
@@ -247,14 +248,13 @@ function init() {
             if (granja.dinero >= priceAnimal) {
                 granja.dinero -= priceAnimal;
                 animals.push(newAnimal);
+                // getAnimalByName(target.id);
+                // onAnimalCardClick(event);
                 document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
                 modal.style.display = "none";
                 modalAnimal.style.display = "none";
-                onAnimalCardClick();
-                getAnimalByName(target);
             }
         }
-
     }
 
     function acariciarBtnAction(animals) {
@@ -419,7 +419,7 @@ function init() {
             granja.leche -= 1
 
             granja.dinero += precioLeche;
-            document.getElementById('farmContainer_milk').innerHTML = "Leche: " + cantLeche + " lts";
+            document.getElementById('farmContainer_milk').innerHTML = "Leche: " + cantLeche;
             document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
             modals.style.display = "none";
 
@@ -452,14 +452,39 @@ function init() {
 
     }
 
-    function producirBtnAction(result) {
-        console.log(e);
+    function producirBtnAction() {
+
         currentAnimalSelected.producir();
-
-
-
     }
 
+    function recogerProdcutoBtnAction(){
+
+        if (currentAnimalSelected.tipo == 'Vaca') {
+            var cantProduciendo = document.getElementById('animalContainer_capProduction').value;
+            granjaLeche.innerHTML = "Leche:" + Math.round(currentAnimalSelected.cantidadDeProducto + cantProduciendo);
+
+            currentAnimalSelected.cantidadDeProducto = 0;
+            document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
+            currentAnimalSelected.producirBtnAction();
+
+        }if (currentAnimalSelected.tipo == 'Pato' | currentAnimalSelected.tipo == 'Gallina') {
+            // var cantProduciendo = document.getElementById('animalContainer_capProduction').value;
+            granjaHuevos.innerHTML = "Huevos:" + currentAnimalSelected.cantidadDeProducto;
+
+            currentAnimalSelected.cantidadDeProducto = 0;
+            document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
+            currentAnimalSelected.producirBtnAction();
+
+        }if (currentAnimalSelected.tipo == 'Cerdo') {
+            var cantProduciendo = document.getElementById('animalContainer_capProduction').value;
+            granjaTocino.innerHTML = "Tocino:" + currentAnimalSelected.cantidadDeProducto + cantProduciendo;
+
+            currentAnimalSelected.cantidadDeProducto = 0;
+            document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
+            currentAnimalSelected.producirBtnAction();
+        }
+    }
+    
     // Get the modalBuy
     var modal = document.getElementById('myModal');
     var btnB = document.getElementById("myBtn");
