@@ -75,7 +75,6 @@ var Vaca = (
 						this.tiempo = 0;
 						this.felicidad -= 1;
 						this.updateCard();
-						document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + result;
 					}
 				}
 			}

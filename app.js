@@ -115,6 +115,7 @@ function init() {
 
 
     var animalFelicidad = null;
+    var animalCapProduccion = null;
 
     //----------Cargar informacion Animal
     function onAnimalCardClick(event) {
@@ -145,7 +146,7 @@ function init() {
             var animalCapAlimento = document.getElementById('animalContainer_capFood');
             animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
 
-            var animalCapProduccion = document.getElementById('animalContainer_capProduction');
+            animalCapProduccion = document.getElementById('animalContainer_capProduction');
             animalCapProduccion.innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
 
             var animalTipoProduccion = document.getElementById('animalContainer_kindProduction');
@@ -171,6 +172,7 @@ function init() {
     function updateAnimalContainer() {
         if (currentAnimalSelected !== null) {
             animalFelicidad.innerHTML = "Felicidad: " + currentAnimalSelected.felicidad + "%";
+            animalCapProduccion.innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
         }
     }
 
