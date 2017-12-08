@@ -25,7 +25,13 @@ var Animal = (
 		//Class Methods
 		Animal.prototype.comer = function () {};
 		Animal.prototype.beber = function () {};
-		Animal.prototype.acariciar = function () {};
+		Animal.prototype.acariciar = function () {
+			console.log(this.nombre + ' Acariciame.');
+			if (this.felicidad <= 100) {
+				this.felicidad++;
+				this.updateCard();
+			}
+		};
 
 		Animal.prototype.producir = function () {
 			// console.log('Este animal no produce nada!');
