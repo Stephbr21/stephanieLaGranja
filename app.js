@@ -157,13 +157,9 @@ function init() {
             if (accionProducir) {
                 btnProducir.classList.add('btnProduccion');
                 btnProducir.classList.remove('btnOcultar');
-                btnRecoger.classList.add('btnProduccion');
-                btnRecoger.classList.remove('btnOcultar');
             } else {
                 btnProducir.classList.remove('btnProduccion');
                 btnProducir.classList.add('btnOcultar');
-                btnRecoger.classList.add('btnProduccion');
-                btnRecoger.classList.remove('btnOcultar');
             }
         }
     }
