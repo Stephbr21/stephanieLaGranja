@@ -15,6 +15,7 @@ var Vaca = (
 			this.title = null;
 			this.infoHappy = null;
 			this.animalDiv = null;
+			this.imageAnimal = null;
 			this.addCard();
 			this.result = 0;
 		}
@@ -30,16 +31,12 @@ var Vaca = (
 			}
 			if (this.capacidadEstomago > 0) {
 				this.capacidadEstomago -= this.cantComida;
-				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
 				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
 				this.felicidad += 1;
-				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
 			}
 
 			if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
-				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";
 			}
 
 			this.updateCard();
@@ -49,11 +46,8 @@ var Vaca = (
 
 			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua != 0) {
 				this.capacidadConsumoAgua -= this.cantAgua;
-				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
-				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+				this.capacidadEstomago -= 1;
 				this.felicidad += 1;
-				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
 				this.updateCard();
 			} else {
 				console.log("El animal no quiere agua");
@@ -71,7 +65,6 @@ var Vaca = (
 						result = Math.round(result * 100) / 100;
 						result.toFixed(2);
 						this.cantidadDeProducto = result;
-						// this.result = Math.round(((this.cantidadDeProducto += this.cantidadDeProductoPorTiempo)*100)/100).toFixed(2);
 						this.tiempo = 0;
 						this.felicidad -= 1;
 						this.updateCard();
@@ -99,19 +92,15 @@ var Vaca = (
 			this.title.classList.add('styleTitle');
 			this.animalDiv.appendChild(this.title);
 
-			var imageAnimal = document.createElement('div');
-			imageAnimal.classList.add(this.tipo);
-			imageAnimal.classList.add('imgAnimalStyle');
-			this.animalDiv.appendChild(imageAnimal);
+			this.imageAnimal = document.createElement('div');
+			this.imageAnimal.classList.add(this.tipo);
+			this.imageAnimal.classList.add('imgAnimalStyle');
+			this.animalDiv.appendChild(this.imageAnimal);
 			this.animalDiv.addEventListener('click', this.onClick, false);
 
 			this.infoHappy = document.createElement('p');
-			// infoHappy = document.getElementById('animalContainer_hapiness');
 			this.infoHappy.innerHTML = "F: " + this.felicidad + "%";
-			this.infoHappy.classList.add('styleTitle');
-			this.infoHappy.style.marginTop = '100px';
-			this.infoHappy.style.fontSize = '15px';
-			this.infoHappy.style.marginRight = '7px';
+			this.infoHappy.classList.add('infoHappy');
 			this.animalDiv.appendChild(this.infoHappy);
 		}
 

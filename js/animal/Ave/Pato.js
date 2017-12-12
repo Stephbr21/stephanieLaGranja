@@ -3,22 +3,26 @@ var Pato = (
 
 		function Pato(pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad, onClick) {
 			Animal.call(this, pnombre, pedad, paltura, ppeso, pcapacidadEstomago, pcapacidadConsumoAgua, pcapacidadConsumoAlimento, pcapacidadProduccion, ptipoDeProduccion, pfelicidad);
-			this.precio = 90;
+			this.precio = 500;
 			this.tipo = 'Pato';
 			this.cantidadDeProducto = 0;
-			this.tiempoDeProduction = 2 * this.FRAMERATE;
-			this.cantidadDeProductoPorTiempo = 2 * (this.felicidad / 100);
-			this.capacidadConsumoAgua = 15;
-			this.cantComida = 3;
+			this.tiempoDeProduction = 4 * this.FRAMERATE;
+			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
+			this.capacidadConsumoAgua = 40;
+			this.cantComida = 6;
+			this.cantAgua = 2;
 			this.onClick = onClick;
 			this.title = null;
+			this.infoHappy = null;
+			this.animalDiv = null;
+			this.imageAnimal = null;
 			this.addCard();
+			this.result = 0;
 		}
 		//Heredar los metodos definidos en Animal (prototype)
 		Pato.prototype = Object.create(Animal.prototype);
 		Pato.prototype.constructor = Animal;
 
-		//Class Methods
 		//Class Methods
 		Pato.prototype.comer = function () {
 
@@ -27,51 +31,46 @@ var Pato = (
 			}
 			if (this.capacidadEstomago > 0) {
 				this.capacidadEstomago -= this.cantComida;
-				document.getElementById('animalContainer_capStomage').innerHTML = "Cap. de estomago: " + this.capacidadEstomago;
 				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
 				this.felicidad += 1;
-				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
 			}
+
 			if (this.capacidadConsumoAlimento == 8) {
 				this.peso += 8;
-				document.getElementById('animalContainer_weight').innerHTML = "Peso: " + this.peso + " kg";
 			}
+
+			this.updateCard();
 		}
 
 		Pato.prototype.beber = function () {
+
 			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua != 0) {
 				this.capacidadConsumoAgua -= this.cantAgua;
-				document.getElementById('animalContainer_capWater').innerHTML = "Consumo de agua: " + this.capacidadConsumoAgua;
-				this.capacidadConsumoAlimento -= 1;
-				document.getElementById('animalContainer_capFood').innerHTML = "Consumo de alimento: " + this.capacidadConsumoAlimento;
+				this.capacidadEstomago -= 1;
 				this.felicidad += 1;
-				document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + this.felicidad + "%";
+				this.updateCard();
 			} else {
 				console.log("El animal no quiere agua");
 			}
 		}
 
-		Pato.prototype.producir = function () {
-			console.log('Ordennar');
-		}
+		Pato.prototype.producir = function () {}
 
 		Pato.prototype.crearProducto = function () {
 			if (this.felicidad > 0) {
 				if (this.cantidadDeProducto <= this.capacidadProduccion) {
 					if (this.tiempo >= this.tiempoDeProduction) {
 						this.cantidadDeProducto += this.cantidadDeProductoPorTiempo;
-						var result = this.cantidadDeProducto
+						var result = this.cantidadDeProducto;
 						result = Math.round(result * 100) / 100;
 						result.toFixed(2);
-						// this.result = Math.round(((this.cantidadDeProducto += this.cantidadDeProductoPorTiempo)*100)/100).toFixed(2);
+						this.cantidadDeProducto = result;
 						this.tiempo = 0;
 						this.felicidad -= 1;
-						document.getElementById('animalContainer_capProduction').innerHTML = "Cant. de producto: " + result;
+						this.updateCard();
 					}
 				}
 			}
-			return result;
 		}
 
 		Pato.prototype.update = function () {
@@ -81,34 +80,33 @@ var Pato = (
 
 		Pato.prototype.addCard = function () {
 
-			var animal = document.createElement('div');
-			var animalsContainer = document.getElementById('animalsContainer')
-			animalsContainer.appendChild(animal);
+			this.animalDiv = document.createElement('div');
+			var animalsContainer = document.getElementById('animalsContainer');
+			animalsContainer.appendChild(this.animalDiv);
 
-			animal.id = this.nombre;
-			animal.classList.add('animalCardContainer');
+			this.animalDiv.id = this.nombre;
+			this.animalDiv.classList.add('animalCardContainer');
 
 			this.title = document.createElement('h5');
 			this.title.innerHTML = this.nombre;
 			this.title.classList.add('styleTitle');
-			animal.appendChild(this.title);
+			this.animalDiv.appendChild(this.title);
 
-			var imageAnimal = document.createElement('div');
-			imageAnimal.classList.add(this.tipo);
-			imageAnimal.classList.add('imgAnimalStyle');
-			animal.appendChild(imageAnimal);
+			this.imageAnimal = document.createElement('div');
+			this.imageAnimal.classList.add(this.tipo);
+			this.imageAnimal.classList.add('imgAnimalStyle');
+			this.animalDiv.appendChild(this.imageAnimal);
+			this.animalDiv.addEventListener('click', this.onClick, false);
 
-			animal.addEventListener('click', this.onClick, false);
-
-			var infoHappy = document.createElement('p');
-			infoHappy.innerHTML = "F: " + this.felicidad + "%";
-			infoHappy.classList.add('styleTitle');
-			infoHappy.style.marginTop = '100px';
-			infoHappy.style.fontSize = '15px';
-			infoHappy.style.marginRight = '7px';
-			animal.appendChild(infoHappy);
+			this.infoHappy = document.createElement('p');
+			this.infoHappy.innerHTML = "F: " + this.felicidad + "%";
+			this.infoHappy.classList.add('infoHappy');
+			this.animalDiv.appendChild(this.infoHappy);
 		}
 
+		Pato.prototype.updateCard = function () {
+			this.infoHappy.innerHTML = "F: " + this.felicidad + "%";
+		}
 		return Pato;
 	}
 )();

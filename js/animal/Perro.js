@@ -49,6 +49,16 @@ var Perro = (
 				console.log("El animal no quiere agua");
 				}
 		}
+
+	
+		Perro.prototype.update = function () {
+			this.tiempo++;
+			this.tiempoFelicidad();
+		}
+		
+		Perro.prototype.tiempoFelicidad = function () {
+			this.felicidad -=1;
+		}
 			
 		Perro.prototype.acariciar = function () {
 			console.log(this.nombre + ' Acariciame.');

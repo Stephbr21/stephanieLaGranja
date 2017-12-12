@@ -113,7 +113,15 @@ function init() {
     document.getElementById('acariciarBtn').addEventListener('click', acariciarBtnAction, false);
     document.getElementById('recogerProductoBtn').addEventListener('click', recogerProductoBtnAction, false);
 
-
+    var animalNombre = null;
+    var animalEdad = null;
+    var animalAltura = null;
+    var animalPeso = null;
+    var animalCapEstomago = null;
+    var animalCapAgua = null;
+    var animalCapAlimento = null;
+    var animalTipoProduccion = null;
+    var animalTipoProduccion = null;
     var animalFelicidad = null;
     var animalCapProduccion = null;
 
@@ -125,31 +133,31 @@ function init() {
 
         // console.log(currentAnimalSelected);
         if (currentAnimalSelected !== null) {
-            var animalNombre = window.document.getElementById('animalContainer_name');
+            animalNombre = window.document.getElementById('animalContainer_name');
             animalNombre.innerHTML = "Nombre: " + currentAnimalSelected.nombre;
 
-            var animalEdad = window.document.getElementById('animalContainer_age');
+            animalEdad = window.document.getElementById('animalContainer_age');
             animalEdad.innerHTML = "Edad: " + currentAnimalSelected.edad + " años";
 
-            var animalAltura = document.getElementById('animalContainer_height');
+            animalAltura = document.getElementById('animalContainer_height');
             animalAltura.innerHTML = "Altura: " + currentAnimalSelected.altura + " m";
 
-            var animalPeso = document.getElementById('animalContainer_weight');
+            animalPeso = document.getElementById('animalContainer_weight');
             animalPeso.innerHTML = "Peso: " + currentAnimalSelected.peso + " kg";
 
-            var animalCapEstomago = document.getElementById('animalContainer_capStomage');
+            animalCapEstomago = document.getElementById('animalContainer_capStomage');
             animalCapEstomago.innerHTML = "Cap. de estomago: " + currentAnimalSelected.capacidadEstomago;
 
-            var animalCapAgua = document.getElementById('animalContainer_capWater');
+            animalCapAgua = document.getElementById('animalContainer_capWater');
             animalCapAgua.innerHTML = "Consumo de agua: " + currentAnimalSelected.capacidadConsumoAgua;
 
-            var animalCapAlimento = document.getElementById('animalContainer_capFood');
+            animalCapAlimento = document.getElementById('animalContainer_capFood');
             animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
 
             animalCapProduccion = document.getElementById('animalContainer_capProduction');
             animalCapProduccion.innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
 
-            var animalTipoProduccion = document.getElementById('animalContainer_kindProduction');
+            animalTipoProduccion = document.getElementById('animalContainer_kindProduction');
             animalTipoProduccion.innerHTML = "Tipo de Producción: " + currentAnimalSelected.tipoDeProduccion;
 
             animalFelicidad = document.getElementById('animalContainer_hapiness');
@@ -173,6 +181,10 @@ function init() {
         if (currentAnimalSelected !== null) {
             animalFelicidad.innerHTML = "Felicidad: " + currentAnimalSelected.felicidad + "%";
             animalCapProduccion.innerHTML = "Cant. de producto: " + currentAnimalSelected.cantidadDeProducto;
+            animalCapAgua.innerHTML = "Cant. de agua: " + currentAnimalSelected.capacidadConsumoAgua;
+            animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
+            animalCapEstomago.innerHTML = "Cap. de estomago: " + currentAnimalSelected.capacidadEstomago;
+            animalPeso.innerHTML = "Peso: " + currentAnimalSelected.peso + " kg";         
         }
     }
 
