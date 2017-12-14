@@ -6,11 +6,11 @@ var Cerdo = (
 			this.precio = 500;
 			this.tipo = 'Cerdo';
 			this.cantidadDeProducto = 0;
-			this.tiempoDeProduction = 4 * this.FRAMERATE;
-			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
-			this.capacidadConsumoAgua = 40;
-			this.cantComida = 6;
-			this.cantAgua = 2;
+			this.tiempoDeProduction = 5 * this.FRAMERATE;
+			this.cantidadDeProductoPorTiempo = 3 * (this.felicidad / 100);
+			this.capacidadConsumoAgua = 70;
+			this.cantComida = 16;
+			this.cantAgua = 10;
 			this.onClick = onClick;
 			this.title = null;
 			this.infoHappy = null;
@@ -43,7 +43,6 @@ var Cerdo = (
 		}
 
 		Cerdo.prototype.beber = function () {
-
 			if (this.capacidadEstomago > 0 && this.capacidadConsumoAgua != 0) {
 				this.capacidadConsumoAgua -= this.cantAgua;
 				this.capacidadEstomago -= 1;

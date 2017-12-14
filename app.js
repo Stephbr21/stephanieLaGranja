@@ -25,8 +25,6 @@ function init() {
         if (this.readyState == 4 && this.status == 200) {
             var respuesta = JSON.parse(xhttp.responseText);
 
-            console.log(respuesta);
-
             var objetoAnimal = respuesta.animales;
 
             for (var i = 0; i < objetoAnimal.length; i++) {
@@ -106,7 +104,6 @@ function init() {
     document.getElementById('sellEgg').addEventListener('click', btnSellEgg, false);
     document.getElementById('sellMilk').addEventListener('click', btnSellMilk, false);
     document.getElementById('sellBacon').addEventListener('click', btnSellBacon, false);
-
     document.getElementById('comerBtn').addEventListener('click', comerBtnAction, false);
     document.getElementById('beberBtn').addEventListener('click', beberBtnAction, false);
     document.getElementById('producirBtn').addEventListener('click', producirBtnAction, false);
@@ -127,7 +124,6 @@ function init() {
 
     //----------Cargar informacion Animal
     function onAnimalCardClick(event) {
-        console.log(event);
 
         currentAnimalSelected = getAnimalByName(event.target);
 
@@ -221,7 +217,6 @@ function init() {
                 }
             }
         }
-        console.log(procesoProduccion);
         return procesoProduccion;
     }
 
@@ -238,43 +233,39 @@ function init() {
         if (newName == "" && newName !== panimal.nombre) {
             console.log('Pongale nombre');
         } else {
-            console.log(animals);
-
             switch (animalSelected) {
                 case 'Vaca':
                     priceAnimal = precioDeVaca;
-                    newAnimal = new Vaca(newName, 3, 1.5, 300, 96, 54, 84, "Leche", 10, 100, onAnimalCardClick);
+                    newAnimal = new Vaca(newName, 1, 1.5, 80, 40, 54, 85, 0, "Leche", 100, onAnimalCardClick);
                     break;
                 case 'Gallina':
                     priceAnimal = precioDeGallina;
-                    newAnimal = new Gallina(newName, 3, 1.5, 300, 96, 54, 84, "Huevos", 10, 80);
+                    newAnimal = new Gallina(newName, 2, 0.6, 70, 96, 54, 40, 0, "Huevos", 80, onAnimalCardClick);
                     break;
                 case 'Pato':
                     priceAnimal = precioDeVaca;
-                    newAnimal = new Pato(newName, 3, 1.5, 300, 96, 54, 84, "Huevos", 10, 70);
+                    newAnimal = new Pato(newName, 2, 1.0, 60, 96, 54, 35, 0, "Huevos", 70, onAnimalCardClick);
                     break;
                 case 'Caballo':
                     priceAnimal = precioDeVaca;
-                    newAnimal = new Caballo(newName, 3, 1.5, 300, 96, 54, 84, "No", 10, 90);
+                    newAnimal = new Caballo(newName, 5, 1.7, 30, 96, 54, 84, "No", 'Ninguna', 90, onAnimalCardClick);
                     break;
                 case 'Cerdo':
                     priceAnimal = precioDeCerdo;
-                    newAnimal = new Cerdo(newName, 3, 1.5, 300, 96, 54, 84, "Tocino", 10, 90);
+                    newAnimal = new Cerdo(newName, 2, 1.4, 40, 96, 54, 90, 0, "Tocino", 90, onAnimalCardClick);
                     break;
                 case 'Gato':
                     priceAnimal = precioDeGato;
-                    newAnimal = new Gato(newName, 3, 1.5, 300, 96, 54, 84, "No", 10, 100);
+                    newAnimal = new Gato(newName, 8, 0.6, 3, 96, 54, 28, "No", 'Ninguna', 100, onAnimalCardClick);
                     break;
                 case 'Perro':
                     priceAnimal = precioDePerro;
-                    newAnimal = new Perro(newName, 3, 1.5, 300, 96, 54, 84, "No", 10, 70);
+                    newAnimal = new Perro(newName, 15, 0.9, 6, 96, 54, 30, "No", 'Ninguna', 70, onAnimalCardClick);
                     break;
             }
             if (granja.dinero >= priceAnimal) {
                 granja.dinero -= priceAnimal;
                 animals.push(newAnimal);
-                // getAnimalByName(target.id);
-                // onAnimalCardClick(event);
                 document.getElementById('farmContainer_money').innerHTML = "Dinero: " + "$" + granja.dinero;
                 modal.style.display = "none";
                 modalAnimal.style.display = "none";
@@ -287,13 +278,6 @@ function init() {
         if (currentAnimalSelected !== null) {
             currentAnimalSelected.acariciar();
         }
-
-        // if (currentAnimalSelected.felicidad == 0) {
-        //     var aumentarFelicidad = currentAnimalSelected.felicidad += 100;
-        //     var img = document.getElementById("mostrar/ocultar");
-        //     document.getElementById('animalContainer_hapiness').innerHTML = "Felicidad: " + aumentarFelicidad + "%";
-        // }
-
     }
 
     function comerBtnAction(panimal) {

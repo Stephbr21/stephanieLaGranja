@@ -2,10 +2,10 @@
     padding: 1px;
     font-family: 'Patrick Hand', cursive;
     background-image: url("http://iambkinc.org/wp-content/uploads/2014/04/Background-landscape.png");
-    background-size: 180%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    min-width: 300px;
+    min-width: 500px;
 }
 
 #controlsContainer{
@@ -18,7 +18,8 @@
     height: 235px;
     margin-bottom: 10px;
     padding: 5px;
-    background-color: rgb(32, 128, 40);
+    background-color: rgba(39, 156, 45, 0.8);
+    background-size: contain;
     opacity: 0.8;
     border-radius: 8px;  
 }
@@ -27,13 +28,11 @@
     height: 340px;
     margin-bottom: 1px;
     padding: 5px;
-    background-color: rgb(87, 8, 51);
+    background-color: rgba(46, 5, 33, 0.8);
     border-radius: 8px;    
 }
 
 #animalsContainer{
-    /* background-color: gray; */
-        /* padding: 0px 0px 20px 0px; */
     height: 570px;
     overflow-y: scroll;
     overflow: auto;
@@ -45,7 +44,7 @@
     width: 27%;
     margin-left: 5%;
     height: 150px;
-    background-color: rgba(47, 101, 146, 0.5);
+    background-color: rgba(18, 102, 128, 0.5);
     margin-top: 20px;
     display: inline-flex;
     border-radius: 8px;
@@ -70,11 +69,6 @@ ul li{
     margin-left: 40px;
     display: block;
     margin-top: 1px;
-}
-
-.happy{
-    background: url(../img/heart.png);
-
 }
 
 /* Animals */
@@ -256,19 +250,27 @@ ul li{
 @media only screen and (min-width: 0px) and (max-width: 640px) {
     body{
        width: 100%;
-       background-size: 90px;
+       background-size: 200px;
     }    
-        .animalCardContainer{
-            width: 80%;
-        }
-       
-    }  
+    
+    .animalCardContainer{
+       width: 80%;
+    }
+    
+    .container-fluid{
+        background-size: 280%;
+    }
+}  
 
 @media only screen and (min-width: 640px) and (max-width: 879px) {
     
 
     .animalCardContainer{
         width: 80%;
+    }
+
+    .container-fluid{
+        background-size: 180%;
     }
    
 }  
@@ -278,10 +280,16 @@ ul li{
         .animalCardContainer{
             width: 40%;
         }
+
+        .container-fluid{
+            background-size: 180%;
+        }
     
     }
     
     /*--------1024-------------*/
     @media only screen and (min-width: 1201px){
-    
+        #animalContainer{
+            height: 310px; 
+        }
     }

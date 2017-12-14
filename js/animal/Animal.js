@@ -25,6 +25,7 @@ var Animal = (
 		//Class Methods
 		Animal.prototype.comer = function () {};
 		Animal.prototype.beber = function () {};
+		
 		Animal.prototype.acariciar = function () {
 			console.log(this.nombre + ' Acariciame.');
 			if (this.felicidad <= 100) {
